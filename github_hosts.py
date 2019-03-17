@@ -21,7 +21,7 @@ def get_ip(host):
         host_ip = socket.gethostbyname(host)
         return host_ip
     except:
-        print("Unable to get Hostname and IP")
+        print("Unable to get IP of Hostname")
 
 def main():
     f = open('github_hosts.txt','w')
