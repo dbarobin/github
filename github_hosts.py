@@ -10,8 +10,7 @@ import socket
 import os
 import sys
 
-reload(sys)
-sys.setdefaultencoding("utf-8")
+
 
 def get_ip(host):
     """
