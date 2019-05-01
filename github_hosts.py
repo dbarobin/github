@@ -10,8 +10,6 @@ import socket
 import os
 import sys
 
-
-
 def get_ip(host):
     """
     Get ip of host.
