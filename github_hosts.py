@@ -32,7 +32,7 @@ def main():
                 result.write(ip.strip('\n') + " " + host)
 
     f = open('github_hosts.txt','a')
-    f.write("# GitHub End\n")
+    f.write("\n# GitHub End\n")
     f.close()
 
 if __name__ == "__main__":
