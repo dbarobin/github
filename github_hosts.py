@@ -10,6 +10,8 @@ import socket
 import os
 import sys
 
+file_path = os.path.split(os.path.realpath(__file__))[0]
+
 def get_ip(host):
     """
     Get ip of host.
@@ -21,17 +23,17 @@ def get_ip(host):
         print("Unable to get IP of Hostname")
 
 def main():
-    f = open('github_hosts.txt','w')
+    f = open('%s/github_hosts.txt' % file_path,'w')
     f.write("# GitHub Start\n")
     f.close()
 
-    with open("github_domain.txt", "r") as ins:
+    with open("%s/github_domain.txt" % file_path, "r") as ins:
         for host in ins:
             ip=get_ip(host.strip())
-            with open('github_hosts.txt', 'a') as result:
+            with open('%s/github_hosts.txt' % file_path, 'a') as result:
                 result.write(ip.strip('\n') + " " + host)
 
-    f = open('github_hosts.txt','a')
+    f = open('%s/github_hosts.txt' % file_path,'a')
     f.write("\n# GitHub End\n")
     f.close()
 

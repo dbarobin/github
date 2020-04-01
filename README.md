@@ -13,6 +13,12 @@ Installation via git clone or download this repo.
 3. Copy content of `github_hosts.txt` to local hosts file
 4. Enjoy GitHub!
 
+## Usage for linux
+1. Git clone or download zip
+2. su root
+3. Execute `bash linux/linux_start.sh`, this script will add a cron job tp refresh /etc/hosts every hour
+4. Enjoy GitHub!
+
 ## Contributing
 
 1. Fork it!
