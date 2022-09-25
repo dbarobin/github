@@ -29,10 +29,8 @@ Installation via git clone or download this repo.
 
 ## Contact
 
-blockxyz@gmail.com
+bkbiblzh@duck.com
 
 ## License
 
 MIT.
-
-

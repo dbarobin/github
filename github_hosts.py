@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # vim:fenc=utf-8
 #
-# Copyright © 2019 Robin Wen <blockxyz@gmail.com>
+# Copyright © 2019 Robin Wen <bkbiblzh@duck.com>
 #
 # Distributed under terms of the MIT license.
 
