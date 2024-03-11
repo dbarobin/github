@@ -1,0 +1,459 @@
+# Sample workflow for building and deploying a Next.js site to GitHub Pages
+#
+# To get started with Next.js see: https://nextjs.org/docs/getting-started
+#
+name: Deploy Next.js site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main content
+main content
+GitHub Docs
+Search GitHub Docs
+Pull requests/
+Collaborate with pull requests/
+Propose changes/
+About pull requests
+Home
+Pull requests
+
+Commit changes to your project
+
+
+Collaborate with pull requests
+
+
+Getting started
+
+
+Working with forks
+
+
+Code quality features
+
+
+Propose changes
+
+About branches
+Create & delete branches
+About pull requests
+Compare branches
+Creating a pull request
+Create a PR from a fork
+Using query parameters to create a pull request
+Change the state
+Request a PR review
+Update the head branch
+Change the base branch
+Commit to PR branch from fork
+
+Address merge conflicts
+
+
+Review changes
+
+
+Incorporate changes
+
+Pull requests/
+Collaborate with pull requests/
+Propose changes/
+About pull requests
+About pull requests
+
+Pull requests let you tell others about changes you've pushed to a branch in a repository on GitHub. Once a pull request is opened, you can discuss and review the potential changes with collaborators and add follow-up commits before your changes are merged into the base branch.
+
+Platform navigation
+Mac
+Windows
+Linux
+In this article
+About pull requests
+Draft pull requests
+Differences between commits on compare and pull request pages
+Further reading
+About pull requests
+
+A pull request is a proposal to merge a set of changes from one branch into another. In a pull request, collaborators can review and discuss the proposed set of changes before they integrate the changes into the main codebase. Pull requests display the differences, or diffs, between the content in the source branch and the content in the target branch.
+
+Note: When working with pull requests, keep the following in mind:
+
+If you're working in the shared repository model, we recommend that you use a topic branch for your pull request. While you can send pull requests from any branch or commit, with a topic branch you can push follow-up commits if you need to update your proposed changes.
+Be very careful when force pushing commits to a pull request. Force pushing changes the repository history and can corrupt your pull request. If other collaborators branch the project before a force push, the force push may overwrite commits that collaborators based their work on.
+You can create pull requests on GitHub.com, with GitHub Desktop, in GitHub Codespaces, on GitHub Mobile, and when using GitHub CLI.
+
+After initializing a pull request, you'll see a review page that shows a high-level overview of the changes between your branch (the compare branch) and the repository's base branch. You can add a summary of the proposed changes, review the changes made by commits, add labels, milestones, and assignees, and @mention individual contributors or teams. For more information, see "Creating a pull request."
+
+Once you've created a pull request, you can push commits from your topic branch to add them to your existing pull request. These commits will appear in chronological order within your pull request and the changes will be visible in the "Files changed" tab.
+
+Other contributors can review your proposed changes, add review comments, contribute to the pull request discussion, and even add commits to the pull request. By default, in public repositories, any user can submit reviews that approve or request changes to a pull request. Organization owners and repository admins can limit who is able to give approving pull request reviews or request changes. For more information, see "Managing pull request reviews in your organization" and "Managing pull request reviews in your repository."
+
+You can see information about the branch's current deployment status and past deployment activity on the "Conversation" tab. For more information, see "Viewing deployment activity for your repository."
+
+After you're happy with the proposed changes, you can merge the pull request. If you're working in a shared repository model, you create a pull request and you, or someone else, will merge your changes from your feature branch into the base branch you specify in your pull request. For more information, see "Merging a pull request."
+
+If status checks are required for a repository, the required status checks must pass before you can merge your branch into the protected branch. For more information, see "About protected branches."
+
+You can link a pull request to an issue to show that a fix is in progress and to automatically close the issue when someone merges the pull request. For more information, see "Linking a pull request to an issue."
+
+Tips:
+
+To toggle between collapsing and expanding all outdated review comments in a pull request, hold down OptionAltAlt and click Show outdated or Hide outdated. For more shortcuts, see "Keyboard shortcuts."
+You can squash commits when merging a pull request to gain a more streamlined view of changes. For more information, see "About pull request merges."
+You can visit your dashboard to quickly find links to recently updated pull requests you're working on or subscribed to. For more information, see "About your personal dashboard."
+
+Draft pull requests
+
+Draft pull requests are available in public repositories with GitHub Free for organizations and legacy per-repository billing plans, and in public and private repositories with GitHub Team, GitHub Enterprise Server, and GitHub Enterprise Cloud. For more information, see "GitHub’s plans."
+
+When you create a pull request, you can choose to create a pull request that is ready for review or a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review draft pull requests. For more information about creating a draft pull request, see "Creating a pull request" and "Creating a pull request from a fork."
+
+When you're ready to get feedback on your pull request, you can mark your draft pull request as ready for review. Marking a pull request as ready for review will request reviews from any code owners. You can convert a pull request to a draft at any time. For more information, see "Changing the stage of a pull request."
+
+Differences between commits on compare and pull request pages
+
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
+Further reading
+
+"GitHub glossary" in the GitHub glossary
+"About branches"
+"Commenting on a pull request"
+"Closing a pull request"
+Help and support
+
+Did this doc help you?
+
+
+YesNo
+Privacy policy
+Help us make these docs great!
+
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+
+Make a contribution
+Learn how to contribute
+
+Still need help?
+
+Ask the GitHub community
+Contact support
+Legal
+
+© 2024 GitHub, Inc.
+Terms
+Privacy
+Status
+Pricing
+Expert services
+Blog
+Search GitHub Docs
+Repositories/
+Manage repository settings/
+Customize your repository/
+Display a sponsor button
+Home
+Repositories
+
+Create & manage repositories
+
+
+Manage repository settings
+
+
+Customize your repository
+
+About READMEs
+Licensing a repository
+Display a sponsor button
+Social media preview
+Classify with topics
+About code owners
+Repository languages
+About CITATION files
+
+Enable features
+
+
+Manage repository settings
+
+
+Branches and merges
+
+
+Work with files
+
+
+Release projects
+
+
+View activity and data
+
+
+Archive a repository
+
+Repositories/
+Manage repository settings/
+Customize your repository/
+Display a sponsor button
+Displaying a sponsor button in your repository
+
+You can add a sponsor button in your repository to increase the visibility of funding options for your open source project.
+
+In this article
+About FUNDING files
+Displaying a sponsor button in your repository
+Further reading
+About FUNDING files
+
+You can configure your sponsor button by editing a FUNDING.yml file in your repository's .github folder, on the default branch. You can configure the button to include sponsored developers in GitHub Sponsors, external funding platforms, or a custom funding URL. For more information about GitHub Sponsors, see "About GitHub Sponsors."
+
+You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in GitHub Sponsors. Add each platform on a new line, using the following syntax.
+
+Platform	Syntax
+LFX Mentorship (formerly CommunityBridge)	community_bridge: PROJECT-NAME
+GitHub Sponsors	github: USERNAME or github: [USERNAME, USERNAME, USERNAME, USERNAME]
+IssueHunt	issuehunt: USERNAME
+Ko-fi	ko_fi: USERNAME
+Liberapay	liberapay: USERNAME
+Open Collective	open_collective: USERNAME
+Patreon	patreon: USERNAME
+Tidelift	tidelift: PLATFORM-NAME/PACKAGE-NAME
+Polar	polar: USERNAME
+Custom URL	custom: LINK1 or custom: [LINK1, LINK2, LINK3, LINK4]
+For Tidelift, use the platform-name/package-name syntax with the following platform names.
+
+Language	Platform name
+JavaScript	npm
+Python	pypi
+Ruby	rubygems
+Java	maven
+PHP	packagist
+C#	nuget
+Here's an example FUNDING.yml file:
+
+github: [octocat, surftocat]
+patreon: octocat
+tidelift: npm/octo-package
+custom: ["https://www.paypal.me/octocat", octocat.com]
+Note: If a custom URL in an array includes :, you must wrap the URL in quotes. For example, "https://www.paypal.me/octocat".
+
+You can create a default sponsor button for your organization or personal account. For more information, see "Creating a default community health file."
+
+Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit GitHub Support.
+
+Displaying a sponsor button in your repository
+
+Anyone with admin permissions can enable a sponsor button in a repository.
+
+On GitHub.com, navigate to the main page of the repository.
+
+Under your repository name, click  Settings. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
+
+Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.
+
+On the "General" settings page, in the "Features" section, select Sponsorships.
+
+In the "Sponsorships" box, click Set up sponsor button or Override funding links.
+
+In the file editor, follow the instructions in the FUNDING.yml file to add links to your funding locations.
+
+Click Commit changes...
+
+In the "Commit message" field, type a short, meaningful commit message that describes the change you made to the file. You can attribute the commit to more than one author in the commit message. For more information, see "Creating a commit with multiple authors."
+
+Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is the default branch, you should choose to create a new branch for your commit and then create a pull request. For more information, see "Creating a pull request."
+
+Screenshot of a GitHub pull request showing a radio button to commit directly to the main branch or to create a new branch. New branch is selected.
+
+Click Commit changes or Propose changes.
+
+Further reading
+
+"About GitHub Sponsors for open source contributors"
+"FAQ with the GitHub Sponsors team" on the GitHub Blog
+Help and support
+
+Did this doc help you?
+
+
+YesNo
+Privacy policy
+Help us make these docs great!
+
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+
+Make a contribution
+Learn how to contribute
+
+Still need help?
+
+Ask the GitHub community
+Contact support
+Legal
+
+© 2024 GitHub, Inc.
+Terms
+Privacy
+Status
+Pricing
+Expert services"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, intelligent in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Detect package manager
+        id: detect-package-manager
+        run: |
+          if [ -f "${{ github.workspace }}/yarn.lock" ]; then
+            echo "manager=yarn" >> $GITHUB_OUTPUT
+            echo "command=install" >> $GITHUB_OUTPUT
+            echo "runner=yarn" >> $GITHUB_OUTPUT
+            exit 0
+          elif [ -f "${{ github.workspace }}/package.json" ]; then
+            echo "manager=npm" >> $GITHUB_OUTPUT
+            echo "command=ci" >> $GITHUB_OUTPUT
+            echo "runner=npx --no-install" >> $GITHUB_OUTPUT
+            exit 0
+          else
+            echo "Unable to determine package manager"
+            exit 1
+          fi
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: ${{ steps.detect-package-manager.outputs.manager }}
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        with:
+          # Automatically inject basePath in your Next.js configuration file and disable
+          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
+          #
+          # You may remove this line if you want to manage the configuration yourself.
+          static_site_generator: next
+      - name: Restore cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+          # Generate a new cache whenever packages or source files change.
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          # If source files changed but packages didn't, rebuild from a prior cache.
+          restore-keys: |
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+      - name: Install dependencies
+        run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+      - name: Build with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Static HTML export with Next.js
+        run: ${{ steps.detect-package-manager.outputs.runner }} next export
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: GitHub/intelligent
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
+        ｛
+ 
+ GitHub Copilot Logo
+GitHub Copilot Individual
+The world's most widely adopted AI developer tool.
+Start your 30-day free trial
+
+GitHub Copilot is powered by generative AI to help you code faster and happier!
+
+Get code suggestions as you type in more than a dozen coding languages, including Python, JavaScript, TypeScript, Go, and Ruby
+Chat with Copilot for assistance on a wide variety of scenarios, such as project-specific code explanations or help with debugging
+Plugs into IDEs, including VS Code, Visual Studio, JetBrains IDEs, and Neovim
+Cancel anytime before the trial ends to avoid getting billed
+Pay frequency after trial
+
+ Monthly plan
+
+$10 USD /month
+ Yearly plan
+Save $20!
+
+
+$100 USD /year
+Next: Confirm your payment details
+GitHub Copilot is free for maintainers of popular open source software on GitHub and verified students. Check out the free use FAQ for more details.
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information｝【
+ 
+ GitHub Copilot Logo
+GitHub Copilot Individual
+The world's most widely adopted AI developer tool.
+Start your 30-day free trial
+
+GitHub Copilot is powered by generative AI to help you code faster and happier!
+
+Get code suggestions as you type in more than a dozen coding languages, including Python, JavaScript, TypeScript, Go, and Ruby
+Chat with Copilot for assistance on a wide variety of scenarios, such as project-specific code explanations or help with debugging
+Plugs into IDEs, including VS Code, Visual Studio, JetBrains IDEs, and Neovim
+Cancel anytime before the trial ends to avoid getting billed
+Pay frequency after trial
+
+ Monthly plan
+
+$10 USD /month
+ Yearly plan
+Save $20!
+
+
+$100 USD /year
+Next: Confirm your payment details
+GitHub Copilot is free for maintainers of popular open source software on GitHub and verified students. Check out the free use FAQ for more details.
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information】
