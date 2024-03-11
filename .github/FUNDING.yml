@@ -1,0 +1,54 @@
+# These are supported funding model platforms
+
+github: # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
+patreon: # Replace with a single Patreon username
+open_collective: # Replace with a single Open Collective username
+ko_fi: # Replace with a single Ko-fi username
+tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
+community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
+liberapay: # Replace with a single Liberapay username
+issuehunt: # Replace with a single IssueHunt username
+lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
+polar: # Replace with a single Polar username
+custom: # Replace with up to 4 custom sponsorship URLs e.g., [
+ 
+Code
+Issues
+Pull requests
+Set up GitHub Copilot
+Use GitHub's AI pair programmer to autocomplete suggestions as you code.
+
+Add collaborators to this repository
+Search for people using their GitHub username or email address.
+
+Quick setup — if you’ve done this kind of thing before
+or	
+	
+Get started by creating a new file or uploading an existing file. We recommend every repository include a README, LICENSE, and .gitignore.
+…or create a new repository on the command line
+echo "# intelligentai" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/intelligentAI1/intelligentai.git
+git push -u origin main
+…or push an existing repository from the command line
+git remote add origin https://github.com/intelligentAI1/intelligentai.git
+git branch -M main
+git push -u origin main
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+ ProTip! Use the URL for this page when adding GitHub as a remote.
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information]
