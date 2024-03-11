@@ -167,7 +167,42 @@ All GitHub docs are open source. See something that's wrong or unclear? Submit a
 
 Learn how to contribute
 
-Still need help?
+Wikidata Toolkit
+
+Build status Coverage status Maven Central 
+ Project Stats
+
+Wikidata Toolkit is a Java library for accessing Wikidata and other Wikibase installations. It can be used to create bots, to perform data extraction tasks (e.g., convert all data in Wikidata to a new format), and to do large-scale analyses that are too complex for using a simple SPARQL query service.
+
+Documentation
+
+Wikidata Toolkit homepage: project homepage with basic user documentation, including guidelines on how to setup your Java IDE for using Maven and git.
+Wikidata Toolkit examples: stand-alone Java project that shows how to use Wikidata Toolkit as a library for your own code.
+Wikidata Toolkit Javadocs: API documentation
+License and Credits
+
+Authors: Markus Kroetzsch, Julian Mendez, Fredo Erxleben, Michael Guenther, Markus Damm, Antonin Delpeuch, Thomas Pellissier Tanon and other contributors
+
+License: Apache 2.0
+
+The development of Wikidata Toolkit has been partially funded by the Wikimedia Foundation under the Wikibase Toolkit Individual Engagement Grant, and by the German Research Foundation (DFG) under Emmy Noether grant KR 4381/1-1 "DIAMOND".
+
+How to make a release
+
+During development, the version number in the pom.xml files should be the next version number assuming that the next version is a patch release, followed by -SNAPSHOT. For instance, if the last version to have been released was 1.2.3, then the pom.xml files should contain <version>1.2.4-SNAPSHOT</version>.
+
+Pick the version number for the new release you want to publish, following SemVer. If this is going to be a patch release, it should be the version currently in pom.xml without the -SNAPSHOT suffix. In the following steps, we will assume this new version is 1.2.4.
+Write the new version number in the pom.xml files with mvn versions:set -DnewVersion=1.2.4
+Add some release notes in the RELEASE-NOTES.md file at the root of the repository
+Commit the changes: git commit -am "Set version to 1.2.4"
+Add a tag for the version: git tag -a v1.2.4 -m "Version 1.2.4"
+Write the next version number in the pom.xml file, by incrementing the patch release number: mvn versions:set -DnewVersion=1.2.5-SNAPSHOT
+Commit the changes: git commit -am "Set version to 1.2.5-SNAPSHOT"
+Push commits and tags: git push --tags && git push
+In GitHub's UI, create a release by going to https://github.com/Wikidata/Wikidata-Toolkit/releases/new. Pick the tag you just created, give a title to the release and quickly describe the changes since the previous release (see existing releases for examples).
+Update the version number mentioned in https://www.mediawiki.org/wiki/Wikidata_Toolkit
+Update the examples in https://github.com/Wikidata/Wikidata-Toolkit-Examples (generally just bumping WDTK's version in the pom.xml file works. Make sure it still compiles afterwards.)
+The library is automatically packaged and uploaded to Maven Central by the continuous deployment (with GitHub Actions). So is the HTML version of the javadoc (to GitHub Pages).
 
 Ask the GitHub community
 Contact support
