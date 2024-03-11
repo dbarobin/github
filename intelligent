@@ -1,4 +1,112 @@
-pull_request_target
+pull_request_
+Visual Studio Code Dev Containers
+
+The Dev Containers extension lets you use a Docker container as a full-featured development environment. Whether you deploy to containers or not, containers make a great development environment because you can:
+
+Develop with a consistent, easily reproducible toolchain on the same operating system you deploy to.
+Quickly swap between different, separate development environments and safely make updates without worrying about impacting your local machine.
+Make it easy for new team members / contributors to get up and running in a consistent development environment.
+Try out new technologies or clone a copy of a code base without impacting your local setup.
+The extension starts (or attaches to) a development container running a well defined tool and runtime stack. Workspace files can be mounted into the container from the local file system, or copied or cloned into it once the container is running. Extensions are installed and run inside the container where they have full access to the tools, platform, and file system.
+
+You then work with VS Code as if everything were running locally on your machine, except now they are separated inside a container.
+
+Dev Container
+
+System Requirements
+
+You can use Docker with the Dev Containers extension in a few ways, including:
+
+Docker installed locally
+Docker installed on a remote environment
+Other Docker compliant CLIs, installed locally or remotely
+While other CLIs may work, they are not officially supported. Note that attaching to a Kubernetes cluster only requires a properly configured kubectl CLI
+You can learn more in the alternative Docker options doc.
+
+Below are some specific ways you can configure Docker.
+
+Local:
+
+Windows: Docker Desktop 2.0+ on Windows 10 Pro/Enterprise. Windows 10 Home (2004+) requires Docker Desktop 2.2+ and the WSL2 back-end. (Docker Toolbox is not supported.)
+macOS: Docker Desktop 2.0+.
+Linux: Docker CE/EE 18.06+ and Docker Compose 1.21+. (The Ubuntu snap package is not supported.)
+Containers:
+
+x86_64 / ARMv7l (AArch32) / ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+, CentOS / RHEL 7+
+x86_64 Alpine Linux 3.9+
+Other glibc based Linux containers may work if they have needed prerequisites.
+
+While ARMv7l (AArch32), ARMv8l (AArch64), and musl based Alpine Linux support is available, some extensions installed on these devices may not work due to the use of glibc or x86 compiled native code in the extension. See the Remote Development with Linux article for details.
+
+Note that while the Docker CLI is required, the Docker daemon/service does not need to be running locally if you are using a remote Docker host.
+
+Installation
+
+To get started, follow these steps:
+
+Install VS Code or VS Code Insiders and this extension.
+Install and configure Docker for your operating system, using one of the paths below or an alternative Docker option, like Docker on a remote host or Docker compliant CLI.
+
+Windows / macOS:
+
+Install Docker Desktop for Mac/Windows.
+If not using WSL2 on Windows, right-click on the Docker task bar item, select Settings / Preferences and update Resources > File Sharing with any locations your source code is kept. See tips and tricks for troubleshooting.
+To enable the Windows WSL2 back-end: Right-click on the Docker taskbar item and select Settings. Check Use the WSL2 based engine and verify your distribution is enabled under Resources > WSL Integration.
+Linux:
+
+Follow the official install instructions for Docker CE/EE. If you use Docker Compose, follow the Docker Compose install directions.
+Add your user to the docker group by using a terminal to run: sudo usermod -aG docker $USER Sign out and back in again so this setting takes effect.
+Working with Git? Here are two tips to consider:
+
+If you are working with the same repository folder in a container and Windows, be sure to set up consistent line endings. See tips and tricks to learn how.
+If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt-in to sharing them. See Sharing Git credentials with your container for details.
+Getting started
+
+Follow the step-by-step tutorial or if you are comfortable with Docker, follow these four steps:
+
+Follow the installation steps above.
+Clone https://github.com/Microsoft/vscode-remote-try-node locally.
+Start VS Code
+Run the Dev Containers: Open Folder in Container... command and select the local folder.
+Check out the repository README for things to try. Next, learn how you can:
+
+Use a container as your full-time environment - Open an existing folder in a container for use as your full-time development environment in few easy steps. Works with both container and non-container deployed projects.
+Attach to a running container - Attach to a running container for quick edits, debugging, and triaging.
+Advanced: Use a remote Docker host - Once you know the basics, learn how to use a remote Docker host if needed.
+Available commands
+
+Another way to learn what you can do with the extension is to browse the commands it provides. Press F1 to bring up the Command Palette and type in Dev Containers for a full list of commands.
+
+Command palette
+
+You can also click on the Remote Indicator in the status bar to get a list of the most common commands.
+
+Remote Indicator status bar item
+
+For more information, please see the extension documentation.
+
+Release Notes
+
+While an optional install, this extension releases with VS Code. VS Code release notes include a summary of changes to all Remote Development extensions with a link to detailed release notes.
+
+As with VS Code itself, the extensions update during a development iteration. You can use the pre-release version of this extension to regularly get the latest extension updates before the official extension release.
+
+Questions, Feedback, Contributing
+
+Have a question or feedback?
+
+See the documentation or the troubleshooting guide.
+Up-vote a feature or request a new one, search existing issues, or report a problem.
+Check out the Development Containers Specification and OSS dev container CLI.
+Contribute to our documentation.
+...and more. See our CONTRIBUTING guide for details.
+Telemetry
+
+Visual Studio Code Dev Containers and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the telemetry.enableTelemetry setting which you can learn more about in the Visual Studio Code FAQ.
+
+License
+
+By downloading and using the Visual Studio Dev Containers extension and its related components, you agree to the product license terms and privacy statement.
 
 Webhook event payload	Activity types	GITHUB_SHA	GITHUB_REF
 pull_request	- assigned
