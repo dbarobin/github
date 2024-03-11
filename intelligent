@@ -1,0 +1,579 @@
+pull_request_
+Visual Studio Code Dev Containers
+
+The Dev Containers extension lets you use a Docker container as a full-featured development environment. Whether you deploy to containers or not, containers make a great development environment because you can:
+
+Develop with a consistent, easily reproducible toolchain on the same operating system you deploy to.
+Quickly swap between different, separate development environments and safely make updates without worrying about impacting your local machine.
+Make it easy for new team members / contributors to get up and running in a consistent development environment.
+Try out new technologies or clone a copy of a code base without impacting your local setup.
+The extension starts (or attaches to) a development container running a well defined tool and runtime stack. Workspace files can be mounted into the container from the local file system, or copied or cloned into it once the container is running. Extensions are installed and run inside the container where they have full access to the tools, platform, and file system.
+
+You then work with VS Code as if everything were running locally on your machine, except now they are separated inside a container.
+
+Dev Container
+
+System Requirements
+
+You can use Docker with the Dev Containers extension in a few ways, including:
+
+Docker installed locally
+Docker installed on a remote environment
+Other Docker compliant CLIs, installed locally or remotely
+While other CLIs may work, they are not officially supported. Note that attaching to a Kubernetes cluster only requires a properly configured kubectl CLI
+You can learn more in the alternative Docker options doc.
+
+Below are some specific ways you can configure Docker.
+
+Local:
+
+Windows: Docker Desktop 2.0+ on Windows 10 Pro/Enterprise. Windows 10 Home (2004+) requires Docker Desktop 2.2+ and the WSL2 back-end. (Docker Toolbox is not supported.)
+macOS: Docker Desktop 2.0+.
+Linux: Docker CE/EE 18.06+ and Docker Compose 1.21+. (The Ubuntu snap package is not supported.)
+Containers:
+
+x86_64 / ARMv7l (AArch32) / ARMv8l (AArch64) Debian 9+, Ubuntu 16.04+, CentOS / RHEL 7+
+x86_64 Alpine Linux 3.9+
+Other glibc based Linux containers may work if they have needed prerequisites.
+
+While ARMv7l (AArch32), ARMv8l (AArch64), and musl based Alpine Linux support is available, some extensions installed on these devices may not work due to the use of glibc or x86 compiled native code in the extension. See the Remote Development with Linux article for details.
+
+Note that while the Docker CLI is required, the Docker daemon/service does not need to be running locally if you are using a remote Docker host.
+
+Installation
+
+To get started, follow these steps:
+
+Install VS Code or VS Code Insiders and this extension.
+Install and configure Docker for your operating system, using one of the paths below or an alternative Docker option, like Docker on a remote host or Docker compliant CLI.
+
+Windows / 
+ 
+registrypackages Search Results · repo:intelligent
+699k results
+external-secrets/external-secrets
+: 
+external-secrets
+Container
+·
+sha256-95db8ce4712de86c1ffaa487fb87e027ea08f3d5cab8bdac4049fdb245102da5.att
+·
+
+15.5B
+·
+Updated 22 hours ago
+fluxcd/source-controller
+: 
+source-controller
+Container
+·
+sha256-34106b52d88d67d2889fabd2df19682dda30f32030488c9ae5c72e26239080fb.att
+·
+
+7.5B
+·
+Updated on 2月1日
+fluxcd/kustomize-controller
+: 
+kustomize-controller
+Container
+·
+sha256-2df190255fc09131412472b900524c5c72a43464b3c2e99163c1ee143c5c2e22.att
+·
+
+3.6B
+·
+Updated on 2月2日
+fluxcd/helm-controller
+: 
+helm-controller
+Container
+·
+sha256-8b3a7f09fdca315d3e91d892a22f89fefad09021868266912e06f8dfdac03079.sig
+·
+
+3.2B
+·
+Updated on 2月5日
+kyverno/kyverno
+: 
+kyverno
+Container
+·
+sha256-1eb933739f1391dbe106ebb67144d214eea2a95d9a8cf40128b9fc61f952b52a.att
+·
+
+2.8B
+·
+Updated 2 days ago
+kyverno/kyverno
+: 
+kyvernopre
+Container
+·
+sha256-ac699dd745d9f5e22f293bf0f06a25bfa1af11f0a8492c83cb9c26a22b3d1f91.att
+·
+
+2.7B
+·
+Updated 2 days ago
+fluxcd/notification-controller
+: 
+notification-controller
+Container
+·
+sha256-3e1292b9e8bab71c248307a0611bacfa1fd804231c99c79f113809436566fc3b.att
+·
+
+2.3B
+·
+Updated on 2月1日
+fluxcd/image-automation-controller
+: 
+image-automation-controller
+Container
+·
+sha256-97a8895cab8594af7509a5f2bc5495c03b7346722afc4e1e70bf6e445b7e575d.att
+·
+
+1.9B
+·
+Updated on 2月1日
+fluxcd/image-reflector-controller
+: 
+image-reflector-controller
+Container
+·
+sha256-561c17eec9d4afe54be775d5e221e53d9955d0a1ba43b7fdcf365fa562baf273.att
+·
+
+1.1B
+·
+Updated on 2月1日
+stakater/Reloader
+: 
+reloader
+Container
+·
+SNAPSHOT-PR-573-UBI-7881cff9
+·
+
+1.1B
+·
+Updated 3 hours ago
+Package Icon
+Learn GitHub Packages
+GitHub Packages is a platform for hosting and managing packages, including containers and other dependencies. Get started with publishing or installing packages yourself.
+Learn more about GitHub Packages
+
+Install Docker Desktop for Mac/Windows.
+If not using WSL2 on Windows, right-click on the Docker task bar item, select Settings / Preferences and update Resources > File Sharing with any locations your source code is kept. See tips and tricks for troubleshooting.
+To enable the Windows WSL2 back-end: Right-click on the Docker taskbar item and select Settings. Check Use the WSL2 based engine and verify your distribution is enabled under Resources > WSL Integration.
+Linux:
+
+Follow the official install instructions for Docker CE/EE. If you use Docker Compose, follow the Docker Compose install directions.
+Add your user to the docker group by using a terminal to run: sudo usermod -aG docker $USER Sign out and back in again so this setting takes effect.
+Working with Git? Here are two tips to consider:
+
+If you are working with the same repository folder in a container and Windows, be sure to set up consistent line endings. See tips and tricks to learn how.
+If you clone using a Git credential manager, your container should already have access to your credentials! If you use SSH keys, you can also opt-in to sharing them. See Sharing Git credentials with your container for details.
+Getting started
+
+Follow the step-by-step tutorial or if you are comfortable with Docker, follow these four steps:
+
+Follow the installation steps above.
+Clone https://github.com/Microsoft/vscode-remote-try-node locally.
+Start VS Code
+Run the Dev Containers: Open Folder in Container... command and select the local folder.
+Check out the repository README for things to try. Next, learn how you can:
+
+Use a container as your full-time environment - Open an existing folder in a container for use as your full-time development environment in few easy steps. Works with both container and non-container deployed projects.
+Attach to a running container - Attach to a running container for quick edits, debugging, and triaging.
+Advanced: Use a remote Docker host - Once you know the basics, learn how to use a remote Docker host if needed.
+Available commands
+
+Another way to learn what you can do with the extension is to browse the commands it provides. Press F1 to bring up the Command Palette and type in Dev Containers for a full list of commands.
+
+Command palette
+
+You can also click on the Remote Indicator in the status bar to get a list of the most common commands.
+
+Remote Indicator status bar item
+
+For more information, please see the extension documentation.
+
+Release Notes
+
+While an optional install, this extension releases with VS Code. VS Code release notes include a summary of changes to all Remote Development extensions with a link to detailed release notes.
+
+As with VS Code itself, the extensions update during a development iteration. You can use the pre-release version of this extension to regularly get the latest extension updates before the official extension release.
+
+Questions, Feedback, Contributing
+
+Have a question or feedback?
+
+See the documentation or the troubleshooting guide.
+Up-vote a feature or request a new one, search existing issues, or report a problem.
+Check out the Development Containers Specification and OSS dev container CLI.
+Contribute to our documentation.
+...and more. See our CONTRIBUTING guide for details.
+Telemetry
+
+Visual Studio Code Dev Containers and related extensions collect telemetry data to help us build a better experience working remotely from VS Code. We only collect data on which commands are executed. We do not collect any information about image names, paths, etc. The extension respects the telemetry.enableTelemetry setting which you can learn more about in the Visual Studio Code FAQ.
+
+License
+
+By downloading and using the Visual Studio Dev Containers extension and its related components, you agree to the product license terms and privacy statement.
+
+Webhook event payload	Activity types	GITHUB_SHA	GITHUB_REF
+pull_request	- assigned
+- unassigned
+- labeled
+- unlabeled
+- opened
+- edited
+- closed
+- reopened
+- synchronize
+- converted_to_draft
+- ready_for_review
+- locked
+- unlocked
+- review_requested
+- review_request_removed
+- auto_merge_enabled
+- auto_merge_disabled	Last commit on the PR base branch	PR base 
+【GitHub Developer Program
+If you build tools that integrate with GitHub, you can join the GitHub Developer Program.
+In this article
+Scratch an itch
+Take on the enterprise
+Have an integration that works with GitHub?
+Ready to join the GitHub Developer Program?
+Building an application that integrates with GitHub? Register for our Developer Program! The possibilities are endless, and you enjoy the kudos. Register now.
+
+Scratch an itch
+
+Build your own tools that seamlessly integrate with the place you push code every day.
+
+Take on the enterprise
+
+Email partnerships@github.com to request developer licenses to build and test your application against GitHub Enterprise Server.
+
+Have an integration that works with GitHub?
+
+Awesome! Here’s how you can spread the word:
+
+Use the Octocat or GitHub logo to identify that your product works with GitHub.
+Post a video or a blog on your website about your integration.
+Ready to join the GitHub Developer Program?
+
+Membership is open to individual developers and companies who have:
+
+An integration in production or development using the GitHub API.
+An email address where GitHub users can contact you for support.
+Press alt+up to activate
+Help and support
+Did this doc help you?
+
+
+Privacy policy
+Help us make these docs great!
+
+All GitHub docs are open source. github
+5 years ago
+
+.gitlab
+3 days ago
+
+.lefthook/pre-push
+last year
+
+.rubocop_todo
+4 days ago
+
+app
+2 hours ago
+
+bin
+3 days ago
+
+builds
+9 years ago
+
+changelogs
+2 weeks ago
+
+config
+2 days ago
+
+danger
+last week
+Repository files navigation
+
+README
+
+License
+GitLab
+
+Canonical source
+
+The canonical source of GitLab where all development takes place is hosted on GitLab.com.
+
+If you wish to clone a copy of GitLab without proprietary code, you can use the read-only mirror of GitLab located at https://gitlab.com/gitlab-org/gitlab-foss/. However, please do not submit any issues and/or merge requests to that project.
+
+Free trial
+
+You can request a free trial of GitLab Ultimate on our website.
+
+Open source software to collaborate on code
+
+To see how GitLab looks please see the features page on our website.
+
+Manage Git repositories with fine grained access controls that keep your code secure
+Perform code reviews and enhance collaboration with merge requests
+Complete continuous integration (CI) and continuous deployment/delivery (CD) pipelines to build, test, and deploy your applications
+Each project can also have an issue tracker, issue board, and a wiki
+Used by more than 100,000 organizations, GitLab is the most popular solution to manage Git repositories on-premises
+Completely free and open source (MIT Expat license)
+Editions
+
+There are three editions of GitLab:
+
+GitLab Community Edition (This branch is 8 commits ahead of dbarobin/github:master.
+Folders and files
+Name	
+Latest commit
+intelligentAI1
+intelligentAI1
+4 minutes ago
+History
+
+.github/workflows
+last week
+
+linux
+4 years ago
+
+LICENSE
+18 minutes ago
+
+README.md
+2 years ago
+
+github_domain.txt
+5 years ago
+
+github_hosts.py
+2 years ago
+
+github_hosts.txt
+2 years ago
+
+intelligent
+4 minutes ago
+
+proxychains.conf
+5 years ago
+Repository files navigation
+README
+Code of conduct
+GitHub Acceleration Best Practices
+
+GitHub Acceleration Best Practices, see at: GitHub Docs.
+
+Installation
+
+Installation via git clone or download this repo.
+
+Usage
+
+Git clone or download zip
+Execute python github_hosts.py, python 2.7+ required
+Copy content of github_hosts.txt to local hosts file
+Enjoy GitHub!
+Usage for linux
+
+Git clone or download zip
+su root
+Execute bash linux/linux_start.sh, this script will add a cron job tp refresh /etc/hosts every hour
+Enjoy GitHub!
+Contributing
+
+Fork it!
+Create your feature branch: git checkout -b my-new-feature
+Commit your changes: git commit -am 'Add some feature'
+Push to the branch: git push origin my-new-feature
+Submit a pull request :D
+Contact
+
+bkbiblzh@duck.com
+
+License
+
+MIT.
+
+Releases
+
+Yes releases published
+Create a new release
+Packages
+
+Yes packages published
+Publish your first package
+Languages
+
+Shell
+100%
+ 
+Python
+0.1%
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information) is available freely under the MIT Expat license.
+GitLab Enterprise Edition (EE) includes extra features that are more useful for organizations with more than 100 users. To use EE and get official support please become a subscriber.
+JiHu Edition (JH) tailored specifically for the Chinese market.
+Licensing
+
+See the LICENSE file for licensing information as it pertains to files in this repository.
+
+Hiring
+
+We are hiring developers, support people, and production engineers all the time, please see our jobs page.
+
+Website
+
+On about.gitlab.com you can find more information about:
+
+Subscriptions
+Professional Services
+Community
+Hosted GitLab.com use GitLab as a free service
+GitLab Enterprise Edition with additional features aimed at larger organizations.
+GitLab CI a continuous integration (CI) server that is easy to integrate with GitLab.
+Requirements
+
+Please see the requirements documentation for system requirements and more information about the supported operating systems.
+
+Installation
+
+The recommended way to install GitLab is with the Omnibus packages on our package server. Compared to an installation from source, this is faster and less error prone. Just select your operating system, download the respective package (Debian or RPM) and install it using the system's package manager.
+
+There are various other options to install GitLab, please refer to the installation page on the GitLab website for more information.
+
+Contributing
+
+GitLab is an open source project and we are very happy to accept community contributions. Please refer to Contributing to GitLab page for more details.
+
+Install a development environment
+
+To work on GitLab itself, we recommend setting up your development environment with the GitLab Development Kit. If you do not use the GitLab Development Kit you need to install and configure all the dependencies yourself, this is a lot of work and error prone. One small thing you also have to do when installing it yourself is to copy the example development Puma configuration file:
+
+cp config/puma.example.development.rb config/puma.rb
+Instructions on how to start GitLab and how to run the tests can be found in the getting started section of the GitLab Development Kit.
+
+Software stack
+
+GitLab is a Ruby on Rails application that runs on the following software:
+
+Ubuntu/Debian/CentOS/RHEL/OpenSUSE
+Ruby (MRI) 3.1.4
+Git 2.33+
+Redis 6.0+
+PostgreSQL 12+
+For more information please see the architecture and requirements documentation.
+
+UX design
+
+Please adhere to the UX Guide when creating designs and implementing code.
+
+Third-party applications
+
+There are a lot of third-party applications integrating with GitLab. These include GUI Git clients, mobile applications and API wrappers for various languages.
+
+GitLab release cycle
+
+For more information about the release process see the release documentation.
+
+Upgrading
+
+For upgrading information please see our update page.
+
+Documentation
+
+All documentation can be found on https://docs.gitlab.com.
+
+Getting help
+
+Please see Getting help for GitLab on our website for the many options to get help.
+
+Why?
+
+Read here
+
+Is it any good?
+
+Yes
+
+Is it awesome?
+
+These people seem to like  Submit a pull request.
+
+Learn how to contribute
+
+Wikidata Toolkit
+
+Build status Coverage status Maven Central 
+ Project Stats
+
+Wikidata Toolkit is a Java library for accessing Wikidata and other Wikibase installations. It can be used to create bots, to perform data extraction tasks (e.g., convert all data in Wikidata to a new format), and to do large-scale analyses that are too complex for using a simple SPARQL query service.
+
+Documentation
+
+Wikidata Toolkit homepage: project homepage with basic user documentation, including guidelines on how to setup your Java IDE for using Maven and git.
+Wikidata Toolkit examples: stand-alone Java project that shows how to use Wikidata Toolkit as a library for your own code.
+Wikidata Toolkit Javadocs: API documentation
+License and Credits
+
+Authors: Markus Kroetzsch, Julian Mendez, Fredo Erxleben, Michael Guenther, Markus Damm, Antonin Delpeuch, Thomas Pellissier Tanon and other contributors
+
+License: Apache 2.0
+
+The development of Wikidata Toolkit has been partially funded by the Wikimedia Foundation under the Wikibase Toolkit Individual Engagement Grant, and by the German Research Foundation (DFG) under Emmy Noether grant KR 4381/1-1 "DIAMOND".
+
+How to make a release
+
+During development, the version number in the pom.xml files should be the next version number assuming that the next version is a patch release, followed by -SNAPSHOT. For instance, if the last version to have been released was 1.2.3, then the pom.xml files should contain <version>1.2.4-SNAPSHOT</version>.
+
+Pick the version number for the new release you want to publish, following SemVer. If this is going to be a patch release, it should be the version currently in pom.xml without the -SNAPSHOT suffix. In the following steps, we will assume this new version is 1.2.4.
+Write the new version number in the pom.xml files with mvn versions:set -DnewVersion=1.2.4
+Add some release notes in the RELEASE-NOTES.md file at the root of the repository
+Commit the changes: git commit -am "Set version to 1.2.4"
+Add a tag for the version: git tag -a v1.2.4 -m "Version 1.2.4"
+Write the next version number in the pom.xml file, by incrementing the patch release number: mvn versions:set -DnewVersion=1.2.5-SNAPSHOT
+Commit the changes: git commit -am "Set version to 1.2.5-SNAPSHOT"
+Push commits and tags: git push --tags && git push
+In GitHub's UI, create a release by going to https://github.com/Wikidata/Wikidata-Toolkit/releases/new. Pick the tag you just created, give a title to the release and quickly describe the changes since the previous release (see existing releases for examples).
+Update the version number mentioned in https://www.mediawiki.org/wiki/Wikidata_Toolkit
+Update the examples in https://github.com/Wikidata/Wikidata-Toolkit-Examples (generally just bumping WDTK's version in the pom.xml file works. Make sure it still compiles afterwards.)
+The library is automatically packaged and uploaded to Maven Central by the continuous deployment (with GitHub Actions). So is the HTML version of the javadoc (to GitHub Pages).
+
+Ask the GitHub community
+Contact support
+Legal
+
+© 2024 GitHub, Inc.
+Terms
+Privacy
+Status
+Pricing
+Expert services
+Blog】
