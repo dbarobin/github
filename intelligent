@@ -223,7 +223,105 @@ Editions
 
 There are three editions of GitLab:
 
-GitLab Community Edition (CE) is available freely under the MIT Expat license.
+GitLab Community Edition (This branch is 8 commits ahead of dbarobin/github:master.
+Folders and files
+Name	
+Latest commit
+intelligentAI1
+intelligentAI1
+4 minutes ago
+History
+
+.github/workflows
+last week
+
+linux
+4 years ago
+
+LICENSE
+18 minutes ago
+
+README.md
+2 years ago
+
+github_domain.txt
+5 years ago
+
+github_hosts.py
+2 years ago
+
+github_hosts.txt
+2 years ago
+
+intelligent
+4 minutes ago
+
+proxychains.conf
+5 years ago
+Repository files navigation
+README
+Code of conduct
+GitHub Acceleration Best Practices
+
+GitHub Acceleration Best Practices, see at: GitHub Docs.
+
+Installation
+
+Installation via git clone or download this repo.
+
+Usage
+
+Git clone or download zip
+Execute python github_hosts.py, python 2.7+ required
+Copy content of github_hosts.txt to local hosts file
+Enjoy GitHub!
+Usage for linux
+
+Git clone or download zip
+su root
+Execute bash linux/linux_start.sh, this script will add a cron job tp refresh /etc/hosts every hour
+Enjoy GitHub!
+Contributing
+
+Fork it!
+Create your feature branch: git checkout -b my-new-feature
+Commit your changes: git commit -am 'Add some feature'
+Push to the branch: git push origin my-new-feature
+Submit a pull request :D
+Contact
+
+bkbiblzh@duck.com
+
+License
+
+MIT.
+
+Releases
+
+Yes releases published
+Create a new release
+Packages
+
+Yes packages published
+Publish your first package
+Languages
+
+Shell
+100%
+ 
+Python
+0.1%
+Footer
+© 2024 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information) is available freely under the MIT Expat license.
 GitLab Enterprise Edition (EE) includes extra features that are more useful for organizations with more than 100 users. To use EE and get official support please become a subscriber.
 JiHu Edition (JH) tailored specifically for the Chinese market.
 Licensing
