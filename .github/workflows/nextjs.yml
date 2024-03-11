@@ -7,7 +7,159 @@ name: Deploy Next.js site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["master"]
+    branches: ["main content
+GitHub Docs
+Search GitHub Docs
+Repositories/
+Manage repository settings/
+Customize your repository/
+Display a sponsor button
+Home
+Repositories
+
+Create & manage repositories
+
+
+Manage repository settings
+
+
+Customize your repository
+
+About READMEs
+Licensing a repository
+Display a sponsor button
+Social media preview
+Classify with topics
+About code owners
+Repository languages
+About CITATION files
+
+Enable features
+
+
+Manage repository settings
+
+
+Branches and merges
+
+
+Work with files
+
+
+Release projects
+
+
+View activity and data
+
+
+Archive a repository
+
+Repositories/
+Manage repository settings/
+Customize your repository/
+Display a sponsor button
+Displaying a sponsor button in your repository
+
+You can add a sponsor button in your repository to increase the visibility of funding options for your open source project.
+
+In this article
+About FUNDING files
+Displaying a sponsor button in your repository
+Further reading
+About FUNDING files
+
+You can configure your sponsor button by editing a FUNDING.yml file in your repository's .github folder, on the default branch. You can configure the button to include sponsored developers in GitHub Sponsors, external funding platforms, or a custom funding URL. For more information about GitHub Sponsors, see "About GitHub Sponsors."
+
+You can add one username, package name, or project name per external funding platform and up to four custom URLs. You can add one organization and up to four sponsored developers in GitHub Sponsors. Add each platform on a new line, using the following syntax.
+
+Platform	Syntax
+LFX Mentorship (formerly CommunityBridge)	community_bridge: PROJECT-NAME
+GitHub Sponsors	github: USERNAME or github: [USERNAME, USERNAME, USERNAME, USERNAME]
+IssueHunt	issuehunt: USERNAME
+Ko-fi	ko_fi: USERNAME
+Liberapay	liberapay: USERNAME
+Open Collective	open_collective: USERNAME
+Patreon	patreon: USERNAME
+Tidelift	tidelift: PLATFORM-NAME/PACKAGE-NAME
+Polar	polar: USERNAME
+Custom URL	custom: LINK1 or custom: [LINK1, LINK2, LINK3, LINK4]
+For Tidelift, use the platform-name/package-name syntax with the following platform names.
+
+Language	Platform name
+JavaScript	npm
+Python	pypi
+Ruby	rubygems
+Java	maven
+PHP	packagist
+C#	nuget
+Here's an example FUNDING.yml file:
+
+github: [octocat, surftocat]
+patreon: octocat
+tidelift: npm/octo-package
+custom: ["https://www.paypal.me/octocat", octocat.com]
+Note: If a custom URL in an array includes :, you must wrap the URL in quotes. For example, "https://www.paypal.me/octocat".
+
+You can create a default sponsor button for your organization or personal account. For more information, see "Creating a default community health file."
+
+Funding links provide a way for open source projects to receive direct financial support from their community. We don’t support the use of funding links for other purposes, such as for advertising, or supporting political, community, or charity groups. If you have questions about whether your intended use is supported, please visit GitHub Support.
+
+Displaying a sponsor button in your repository
+
+Anyone with admin permissions can enable a sponsor button in a repository.
+
+On GitHub.com, navigate to the main page of the repository.
+
+Under your repository name, click  Settings. If you cannot see the "Settings" tab, select the  dropdown menu, then click Settings.
+
+Screenshot of a repository header showing the tabs. The "Settings" tab is highlighted by a dark orange outline.
+
+On the "General" settings page, in the "Features" section, select Sponsorships.
+
+In the "Sponsorships" box, click Set up sponsor button or Override funding links.
+
+In the file editor, follow the instructions in the FUNDING.yml file to add links to your funding locations.
+
+Click Commit changes...
+
+In the "Commit message" field, type a short, meaningful commit message that describes the change you made to the file. You can attribute the commit to more than one author in the commit message. For more information, see "Creating a commit with multiple authors."
+
+Below the commit message fields, decide whether to add your commit to the current branch or to a new branch. If your current branch is the default branch, you should choose to create a new branch for your commit and then create a pull request. For more information, see "Creating a pull request."
+
+Screenshot of a GitHub pull request showing a radio button to commit directly to the main branch or to create a new branch. New branch is selected.
+
+Click Commit changes or Propose changes.
+
+Further reading
+
+"About GitHub Sponsors for open source contributors"
+"FAQ with the GitHub Sponsors team" on the GitHub Blog
+Help and support
+
+Did this doc help you?
+
+
+YesNo
+Privacy policy
+Help us make these docs great!
+
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+
+Make a contribution
+Learn how to contribute
+
+Still need help?
+
+Ask the GitHub community
+Contact support
+Legal
+
+© 2024 GitHub, Inc.
+Terms
+Privacy
+Status
+Pricing
+Expert services"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -19,7 +171,7 @@ permissions:
   id-token: write
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# However, intelligent in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
