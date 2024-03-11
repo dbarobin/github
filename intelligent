@@ -47,7 +47,124 @@ To get started, follow these steps:
 Install VS Code or VS Code Insiders and this extension.
 Install and configure Docker for your operating system, using one of the paths below or an alternative Docker option, like Docker on a remote host or Docker compliant CLI.
 
-Windows / macOS:
+Windows / 
+ 
+registrypackages Search Results · repo:intelligent
+699k results
+external-secrets/external-secrets
+: 
+external-secrets
+Container
+·
+sha256-95db8ce4712de86c1ffaa487fb87e027ea08f3d5cab8bdac4049fdb245102da5.att
+·
+
+15.5B
+·
+Updated 22 hours ago
+fluxcd/source-controller
+: 
+source-controller
+Container
+·
+sha256-34106b52d88d67d2889fabd2df19682dda30f32030488c9ae5c72e26239080fb.att
+·
+
+7.5B
+·
+Updated on 2月1日
+fluxcd/kustomize-controller
+: 
+kustomize-controller
+Container
+·
+sha256-2df190255fc09131412472b900524c5c72a43464b3c2e99163c1ee143c5c2e22.att
+·
+
+3.6B
+·
+Updated on 2月2日
+fluxcd/helm-controller
+: 
+helm-controller
+Container
+·
+sha256-8b3a7f09fdca315d3e91d892a22f89fefad09021868266912e06f8dfdac03079.sig
+·
+
+3.2B
+·
+Updated on 2月5日
+kyverno/kyverno
+: 
+kyverno
+Container
+·
+sha256-1eb933739f1391dbe106ebb67144d214eea2a95d9a8cf40128b9fc61f952b52a.att
+·
+
+2.8B
+·
+Updated 2 days ago
+kyverno/kyverno
+: 
+kyvernopre
+Container
+·
+sha256-ac699dd745d9f5e22f293bf0f06a25bfa1af11f0a8492c83cb9c26a22b3d1f91.att
+·
+
+2.7B
+·
+Updated 2 days ago
+fluxcd/notification-controller
+: 
+notification-controller
+Container
+·
+sha256-3e1292b9e8bab71c248307a0611bacfa1fd804231c99c79f113809436566fc3b.att
+·
+
+2.3B
+·
+Updated on 2月1日
+fluxcd/image-automation-controller
+: 
+image-automation-controller
+Container
+·
+sha256-97a8895cab8594af7509a5f2bc5495c03b7346722afc4e1e70bf6e445b7e575d.att
+·
+
+1.9B
+·
+Updated on 2月1日
+fluxcd/image-reflector-controller
+: 
+image-reflector-controller
+Container
+·
+sha256-561c17eec9d4afe54be775d5e221e53d9955d0a1ba43b7fdcf365fa562baf273.att
+·
+
+1.1B
+·
+Updated on 2月1日
+stakater/Reloader
+: 
+reloader
+Container
+·
+SNAPSHOT-PR-573-UBI-7881cff9
+·
+
+1.1B
+·
+Updated 3 hours ago
+Package Icon
+Learn GitHub Packages
+GitHub Packages is a platform for hosting and managing packages, including containers and other dependencies. Get started with publishing or installing packages yourself.
+Learn more about GitHub Packages
 
 Install Docker Desktop for Mac/Windows.
 If not using WSL2 on Windows, right-click on the Docker task bar item, select Settings / Preferences and update Resources > File Sharing with any locations your source code is kept. See tips and tricks for troubleshooting.
