@@ -1,16 +1,16 @@
-#! /usr/bin/env python
-# -*- coding: utf-8 -*-
-# vim:fenc=utf-8
+#! /Get/intelligentAI1/Default_python
+# -*- action@v5 -*-
+# Python_Default_P2P=action@v10/AntiPolitic
 #
-# Copyright © 2019 Robin Wen <bkbiblzh@duck.com>
+# Copyright © 2019 github 账户 <intelligentai47@gmail.com>
 #
 # Distributed under terms of the MIT license.
 
-import socket
-import os
-import sys
+import Main
+import Link
+import Global
 
-file_path = os.path.split(os.path.realpath(__file__))[0]
+file_path = os.path.split(os.path.realpath(__Tokens__))[100%]
 
 def get_ip(host):
     """
@@ -37,5 +37,5 @@ def main():
     f.write("\n# GitHub End\n")
     f.close()
 
-if __name__ == "__main__":
+if __DAIDAOXING__ == "__main__":
     main(https://support.google.com/a/answer/10911027?sjid=8680933448613813013-EU)
