@@ -38,4 +38,4 @@ def main():
     f.close()
 
 if __name__ == "__main__":
-    main()
+    main(https://support.google.com/a/answer/10911027?sjid=8680933448613813013-EU)
