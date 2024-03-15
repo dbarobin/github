@@ -1,508 +1,392 @@
-
-
- Wikipedia
-
-Search
-Photograph your local culture, help Wikipedia and win!
-Hide
-HTTP
-Article  Talk
-Language
-Watch
-Edit
-The Hypertext Transfer Protocol (HTTP) is an application layer protocol in the Internet protocol suite model for distributed, collaborative, hypermedia information systems.[1] HTTP is the foundation of data communication for the World Wide Web, where hypertext documents include hyperlinks to other resources that the user can easily access, for example by a mouse click or by tapping the screen in a web browser.
-
-HTTP
-
-International standard
-RFC 1945 HTTP/1.0
-RFC 9110 HTTP Semantics
-RFC 9111 HTTP Caching
-RFC 9112 HTTP/1.1
-RFC 9113 HTTP/2
-RFC 7541 HTTP/2: HPACK Header Compression
-RFC 8164 HTTP/2: Opportunistic Security for HTTP/2
-RFC 8336 HTTP/2: The ORIGIN HTTP/2 Frame
-RFC 8441 HTTP/2: Bootstrapping WebSockets with HTTP/2
-RFC 9114 HTTP/3
-RFC 9204 HTTP/3: QPACK: Field Compression
-Developed by
-initially CERN; IETF, W3C
-Introduced
-1991; 33 years ago
-Website
-https://httpwg.org/specs/
-Development of HTTP was initiated by Tim Berners-Lee at CERN in 1989 and summarized in a simple document describing the behavior of a client and a server using the first HTTP version, named 0.9.[2] That version was subsequently developed, eventually becoming the public 1.0.[3]
-
-Development of early HTTP Requests for Comments (RFCs) started a few years later in a coordinated effort by the Internet Engineering Task Force (IETF) and the World Wide Web Consortium (W3C), with work later moving to the IETF.
-
-HTTP/1 was finalized and fully documented (as version 1.0) in 1996.[4] It evolved (as version 1.1) in 1997 and then its specifications were updated in 1999, 2014, and 2022.[5]
-
-Its secure variant named HTTPS is used by more than 85% of websites.[6]HTTP/2, published in 2015, provides a more efficient expression of HTTP's semantics "on the wire". As of January 2024, it is used by 36% of websites[7] and supported by almost all web browsers (over 98% of users).[8] It is also supported by major web servers over Transport Layer Security (TLS) using an Application-Layer Protocol Negotiation (ALPN) extension[9] where TLS 1.2 or newer is required.[10][11]
-
-HTTP/3, the successor to HTTP/2, was published in 2022.[12] As of February 2024, it is now used on 29% of websites[13] and is supported by most web browsers, i.e. (at least partially) supported by 97% of users.[14] HTTP/3 uses QUIC instead of TCP for the underlying transport protocol. Like HTTP/2, it does not obsolesce previous major versions of the protocol. Support for HTTP/3 was added to Cloudflare and Google Chrome first,[15][16] and is also enabled in Firefox.[17] HTTP/3 has lower latency for real-world web pages, if enabled on the server, and loads faster than with HTTP/2, in some cases over three times faster than HTTP/1.1 (which is still commonly only enabled).[18]
-
-Technical overview
-edit
-
-HTTP functions as a request–response protocol in the client–server model. A web browser, for example, may be the client whereas a process, named web server, running on a computer hosting one or more websites may be the server. The client submits an HTTP request message to the server. The server, which provides resources such as HTML files and other content or performs other functions on behalf of the client, returns a response message to the client. The response contains completion status information about the request and may also contain requested content in its message body.
-
-A web browser is an example of a user agent (UA). Other types of user agent include the indexing software used by search providers (web crawlers), voice browsers, mobile apps, and other software that accesses, consumes, or displays web content.
-
-HTTP is designed to permit intermediate network elements to improve or enable communications between clients and servers. High-traffic websites often benefit from web cache servers that deliver content on behalf of upstream servers to improve response time. Web browsers cache previously accessed web resources and reuse them, whenever possible, to reduce network traffic. HTTP proxy servers at private network boundaries can facilitate communication for clients without a globally routable address, by relaying messages with external servers.
-
-To allow intermediate HTTP nodes (proxy servers, web caches, etc.) to accomplish their functions, some of the HTTP headers (found in HTTP requests/responses) are managed hop-by-hop whereas other HTTP headers are managed end-to-end (managed only by the source client and by the target web server).
-
-HTTP is an application layer protocol designed within the framework of the Internet protocol suite. Its definition presumes an underlying and reliable transport layer protocol.[19] In the latest version HTTP/3, the Transmission Control Protocol (TCP) is no longer used, but the older versions are still more used and they most commonly use TCP. They have also been adapted to use unreliable protocols such as the User Datagram Protocol (UDP), which HTTP/3 also (indirectly) always builds on, for example in HTTPU and Simple Service Discovery Protocol (SSDP).
-
-HTTP resources are identified and located on the network by Uniform Resource Locators (URLs), using the Uniform Resource Identifiers (URI's) schemes http and https. As defined in RFC 3986, URIs are encoded as hyperlinks in HTML documents, so as to form interlinked hypertext documents.
-
-In HTTP/1.0 a separate TCP connection to the same server is made for every resource request.[20]
-
-In HTTP/1.1 instead a TCP connection can be reused to make multiple resource requests (i.e. of HTML pages, frames, images, scripts, stylesheets, etc.).[21][22]
-
-HTTP/1.1 communications therefore experience less latency as the establishment of TCP connections presents considerable overhead, especially under high traffic conditions.[23]
-
-HTTP/2 is a revision of previous HTTP/1.1 in order to maintain the same client–server model and the same protocol methods but with these differences in order:
-
-to use a compressed binary representation of metadata (HTTP headers) instead of a textual one, so that headers require much less space;
-to use a single TCP/IP (usually encrypted) connection per accessed server domain instead of 2 to 8 TCP/IP connections;
-to use one or more bidirectional streams per TCP/IP connection in which HTTP requests and responses are broken down and transmitted in small packets to almost solve the problem of the HOLB (head-of-line blocking).[note 1]
-to add a push capability to allow server application to send data to clients whenever new data is available (without forcing clients to request periodically new data to server by using polling methods).[24]
-HTTP/2 communications therefore experience much less latency and, in most cases, even higher speeds than HTTP/1.1 communications.
-
-HTTP/3 is a revision of previous HTTP/2 in order to use QUIC + UDP transport protocols instead of TCP. Before that version, TCP/IP connections were used; but now, only the IP layer is used (which UDP, like TCP, builds on). This slightly improves the average speed of communications and to avoid the occasional (very rare) problem of TCP connection congestion that can temporarily block or slow down the data flow of all its streams (another form of "head of line blocking").
-
-History
-edit
-
-
-Tim Berners-Lee
-The term hypertext was coined by Ted Nelson in 1965 in the Xanadu Project, which was in turn inspired by Vannevar Bush's 1930s vision of the microfilm-based information retrieval and management "memex" system described in his 1945 essay "As We May Think". Tim Berners-Lee and his team at CERN are credited with inventing the original HTTP, along with HTML and the associated technology for a web server and a client user interface called web browser. Berners-Lee designed HTTP in order to help with the adoption of his other idea: the "WorldWideWeb" project, which was first proposed in 1989, now known as the World Wide Web.
-
-The first web server went live in 1990.[25][26] The protocol used had only one method, namely GET, which would request a page from a server.[27] The response from the server was always an HTML page.[2]
-
-Summary of HTTP milestone versions
-edit
-Version	Year introduced	Current status
-HTTP/0.9	1991	Obsolete
-HTTP/1.0	1996	Obsolete
-HTTP/1.1	1997	Standard
-HTTP/2	2015	Standard
-HTTP/3	2022	Standard
-HTTP/0.9
-In 1991, the first documented official version of HTTP was written as a plain document, less than 700 words long, and this version was named HTTP/0.9, which supported only GET method, allowing clients to only retrieve HTML documents from the server, but not supporting any other file formats or information upload.[2]
-HTTP/1.0-draft
-Since 1992, a new document was written to specify the evolution of the basic protocol towards its next full version. It supported both the simple request method of the 0.9 version and the full GET request that included the client HTTP version. This was the first of the many unofficial HTTP/1.0 drafts that preceded the final work on HTTP/1.0.[3]
-W3C HTTP Working Group
-After having decided that new features of HTTP protocol were required and that they had to be fully documented as official RFCs, in early 1995 the HTTP Working Group (HTTP WG, led by Dave Raggett) was constituted with the aim to standardize and expand the protocol with extended operations, extended negotiation, richer meta-information, tied with a security protocol which became more efficient by adding additional methods and header fields.[28][29]
-The HTTP WG planned to revise and publish new versions of the protocol as HTTP/1.0 and HTTP/1.1 within 1995, but, because of the many revisions, that timeline lasted much more than one year.[30]
-The HTTP WG planned also to specify a far future version of HTTP called HTTP-NG (HTTP Next Generation) that would have solved all remaining problems, of previous versions, related to performances, low latency responses, etc. but this work started only a few years later and it was never completed.
-HTTP/1.0
-In May 1996, RFC 1945 was published as a final HTTP/1.0 revision of what had been used in previous 4 years as a pre-standard HTTP/1.0-draft which was already used by many web browsers and web servers.
-In early 1996 developers started to even include unofficial extensions of the HTTP/1.0 protocol (i.e. keep-alive connections, etc.) into their products by using drafts of the upcoming HTTP/1.1 specifications.[31]
-HTTP/1.1
-Since early 1996, major web browsers and web server developers also started to implement new features specified by pre-standard HTTP/1.1 drafts specifications. End-user adoption of the new versions of browsers and servers was rapid. In March 1996, one web hosting company reported that over 40% of browsers in use on the Internet used the new HTTP/1.1 header "Host" to enable virtual hosting. That same web hosting company reported that by June 1996, 65% of all browsers accessing their servers were pre-standard HTTP/1.1 compliant.[32]
-In January 1997, RFC 2068 was officially released as HTTP/1.1 specifications.
-In June 1999, RFC 2616 was released to include all improvements and updates based on previous (obsolete) HTTP/1.1 specifications.
-W3C HTTP-NG Working Group
-Resuming the old 1995 plan of previous HTTP Working Group, in 1997 an HTTP-NG Working Group was formed to develop a new HTTP protocol named HTTP-NG (HTTP New Generation). A few proposals / drafts were produced for the new protocol to use multiplexing of HTTP transactions inside a single TCP/IP connection, but in 1999, the group stopped its activity passing the technical problems to IETF.[33]
-IETF HTTP Working Group restarted
-In 2007, the IETF HTTP Working Group (HTTP WG bis or HTTPbis) was restarted firstly to revise and clarify previous HTTP/1.1 specifications and secondly to write and refine future HTTP/2 specifications (named httpbis).[34][35]
-SPDY: an unofficial HTTP protocol developed by Google
-In 2009, Google, a private company, announced that it had developed and tested a new HTTP binary protocol named SPDY. The implicit aim was to greatly speed up web traffic (specially between future web browsers and its servers).
-SPDY was indeed much faster than HTTP/1.1 in many tests and so it was quickly adopted by Chromium and then by other major web browsers.[36]
-Some of the ideas about multiplexing HTTP streams over a single TCP/IP connection were taken from various sources, including the work of W3C HTTP-NG Working Group.
-HTTP/2
-In January–March 2012, HTTP Working Group (HTTPbis) announced the need to start to focus on a new HTTP/2 protocol (while finishing the revision of HTTP/1.1 specifications), maybe taking in consideration ideas and work done for SPDY.[37][38]
-After a few months about what to do to develop a new version of HTTP, it was decided to derive it from SPDY.[39]
-In May 2015, HTTP/2 was published as RFC 7540 and quickly adopted by all web browsers already supporting SPDY and more slowly by web servers.
-2014 updates to HTTP/1.1
-In June 2014, the HTTP Working Group released an updated six-part HTTP/1.1 specification obsoleting RFC 2616:
-RFC 7230, HTTP/1.1: Message Syntax and Routing
-RFC 7231, HTTP/1.1: Semantics and Content
-RFC 7232, HTTP/1.1: Conditional Requests
-RFC 7233, HTTP/1.1: Range Requests
-RFC 7234, HTTP/1.1: Caching
-RFC 7235, HTTP/1.1: Authentication
-HTTP/0.9 Deprecation
-In RFC 7230 Appendix-A, HTTP/0.9 was deprecated for servers supporting HTTP/1.1 version (and higher):[40]
-Since HTTP/0.9 did not support header fields in a request, there is no mechanism for it to support name-based virtual hosts (selection of resource by inspection of the Host header field). Any server that implements name-based virtual hosts ought to disable support for HTTP/0.9. Most requests that appear to be HTTP/0.9 are, in fact, badly constructed HTTP/1.x requests caused by a client failing to properly encode the request-target.
-Since 2016 many product managers and developers of user agents (browsers, etc.) and web servers have begun planning to gradually deprecate and dismiss support for HTTP/0.9 protocol, mainly for the following reasons:[41]
-it is so simple that an RFC document was never written (there is only the original document);[2]
-it has no HTTP headers and lacks many other features that nowadays are required for minimal security reasons;
-it has not been widespread since 1999..2000 (because of HTTP/1.0 and HTTP/1.1) and is commonly used only by some very old network hardware, i.e. routers, etc.
-[note 2]
-HTTP/3
-In 2020, the first drafts HTTP/3 were published and major web browsers and web servers started to adopt it.
-On 6 June 2022, IETF standardized HTTP/3 as RFC 9114.[42]
-Updates and refactoring in 2022
-In June 2022, a batch of RFCs was published, deprecating many of the previous documents and introducing a few minor changes and a refactoring of HTTP semantics description into a separate document.
-RFC 9110, HTTP Semantics
-RFC 9111, HTTP Caching
-RFC 9112, HTTP/1.1
-RFC 9113, HTTP/2
-RFC 9114, HTTP/3 (see also the section above)
-RFC 9204, QPACK: Field Compression for HTTP/3
-RFC 9218, Extensible Prioritization Scheme for HTTP
-HTTP data exchange
-edit
-
-HTTP is a stateless application-level protocol and it requires a reliable network transport connection to exchange data between client and server.[19] In HTTP implementations, TCP/IP connections are used using well-known ports (typically port 80 if the connection is unencrypted or port 443 if the connection is encrypted, see also List of TCP and UDP port numbers).[43][44] In HTTP/2, a TCP/IP connection plus multiple protocol channels are used. In HTTP/3, the application transport protocol QUIC over UDP is used.
-
-Request and response messages through connections
-edit
-Data is exchanged through a sequence of request–response messages which are exchanged by a session layer transport connection.[19] An HTTP client initially tries to connect to a server establishing a connection (real or virtual). An HTTP(S) server listening on that port accepts the connection and then waits for a client's request message. The client sends its HTTP request message. Upon receiving the request the server sends back an HTTP response message, which includes header(s) plus a body if it is required. The body of this response message is typically the requested resource, although an error message or other information may also be returned. At any time (for many reasons) client or server can close the connection. Closing a connection is usually advertised in advance by using one or more HTTP headers in the last request/response message sent to server or client.[21]
-
-Persistent connections
-edit
-Main article: HTTP persistent connection
-In HTTP/0.9, the TCP/IP connection is always closed after server response has been sent, so it is never persistent.
-
-In HTTP/1.0, as stated in RFC 1945, the TCP/IP connection should always be closed by server after a response has been sent.[note 3]
-
-In HTTP/1.1 a keep-alive-mechanism was officially introduced so that a connection could be reused for more than one request/response. Such persistent connections reduce request latency perceptibly because the client does not need to re-negotiate the TCP 3-Way-Handshake connection after the first request has been sent. Another positive side effect is that, in general, the connection becomes faster with time due to TCP's slow-start-mechanism.
-
-HTTP/1.1 added also HTTP pipelining in order to further reduce lag time when using persistent connections by allowing clients to send multiple requests before waiting for each response. This optimization was never considered really safe because a few web servers and many proxy servers, specially transparent proxy servers placed in Internet / Intranets between clients and servers, did not handle pipelined requests properly (they served only the first request discarding the others, they closed the connection because they saw more data after the first request or some proxies even returned responses out of order etc.). Besides this only HEAD and some GET requests (i.e. limited to real file requests and so with URLs without query string used as a command, etc.) could be pipelined in a safe and idempotent mode. After many years of struggling with the problems introduced by enabling pipelining, this feature was first disabled and then removed from most browsers also because of the announced adoption of HTTP/2.
-
-HTTP/2 extended the usage of persistent connections by multiplexing many concurrent requests/responses through a single TCP/IP connection.
-
-HTTP/3 does not use TCP/IP connections but QUIC + UDP (see also: technical overview).
-
-Content retrieval optimizations
-edit
-HTTP/0.9
-a requested resource was always sent entirely.
-HTTP/1.0
-HTTP/1.0 added headers to manage resources cached by client in order to allow conditional GET requests; in practice a server has to return the entire content of the requested resource only if its last modified time is not known by client or if it changed since last full response to GET request. One of these headers, "Content-Encoding", was added to specify whether the returned content of a resource was or was not compressed.
-If the total length of the content of a resource was not known in advance (i.e. because it was dynamically generated, etc.) then the header "Content-Length: number" was not present in HTTP headers and the client assumed that when server closed the connection, the content had been entirely sent. This mechanism could not distinguish between a resource transfer successfully completed and an interrupted one (because of a server / network error or something else).
-HTTP/1.1
-HTTP/1.1 introduced:
-new headers to better manage the conditional retrieval of cached resources.
-chunked transfer encoding to allow content to be streamed in chunks in order to reliably send it even when the server does not know in advance its length (i.e. because it is dynamically generated, etc.).
-byte range serving, where a client can request only one or more portions (ranges of bytes) of a resource (i.e. the first part, a part in the middle or in the end of the entire content, etc.) and the server usually sends only the requested part(s). This is useful to resume an interrupted download (when a file is really big), when only a part of a content has to be shown or dynamically added to the already visible part by a browser (i.e. only the first or the following n comments of a web page) in order to spare time, bandwidth and system resources, etc.
-HTTP/2, HTTP/3
-Both HTTP/2 and HTTP/3 have kept the above mentioned features of HTTP/1.1.
-HTTP authentication
-edit
-
-HTTP provides multiple authentication schemes such as basic access authentication and digest access authentication which operate via a challenge–response mechanism whereby the server identifies and issues a challenge before serving the requested content.
-
-HTTP provides a general framework for access control and authentication, via an extensible set of challenge–response authentication schemes, which can be used by a server to challenge a client request and by a client to provide authentication information.[1]
-
-The authentication mechanisms described above belong to the HTTP protocol and are managed by client and server HTTP software (if configured to require authentication before allowing client access to one or more web resources), and not by the web applications using a web application session.
-
-Authentication realms
-edit
-The HTTP Authentication specification also provides an arbitrary, implementation-specific construct for further dividing resources common to a given root URI. The realm value string, if present, is combined with the canonical root URI to form the protection space component of the challenge. This in effect allows the server to define separate authentication scopes under one root URI.[1]
-
-HTTP application session
-edit
-
-HTTP is a stateless protocol. A stateless protocol does not require the web server to retain information or status about each user for the duration of multiple requests.
-
-Some web applications need to manage user sessions, so they implement states, or server side sessions, using for instance HTTP cookies[45] or hidden variables within web forms.
-
-To start an application user session, an interactive authentication via web application login must be performed. To stop a user session a logout operation must be requested by user. These kind of operations do not use HTTP authentication but a custom managed web application authentication.
-
-HTTP/1.1 request messages
-edit
-
-Request messages are sent by a client to a target server.[note 4]
-
-Request syntax
-edit
-A client sends request messages to the server, which consist of:[46]
-
-a request line, consisting of the case-sensitive request method, a space, the requested URL, another space, the protocol version, a carriage return, and a line feed, e.g.:
-GET /images/logo.png HTTP/1.1
-zero or more request header fields (at least 1 or more headers in case of HTTP/1.1), each consisting of the case-insensitive field name, a colon, optional leading whitespace, the field value, an optional trailing whitespace and ending with a carriage return and a line feed, e.g.:
-Host: www.example.com
-Accept-Language: en
-an empty line, consisting of a carriage return and a line feed;
-an optional message body.
-In the HTTP/1.1 protocol, all header fields except Host: hostname are optional.
-
-A request line containing only the path name is accepted by servers to maintain compatibility with HTTP clients before the HTTP/1.0 specification in RFC 1945.[47]
-
-Request methods
-edit
-
-An HTTP/1.1 request made using telnet. The request message, response header section, and response body are highlighted.
-HTTP defines methods (sometimes referred to as verbs, but nowhere in the specification does it mention verb) to indicate the desired action to be performed on the identified resource. What this resource represents, whether pre-existing data or data that is generated dynamically, depends on the implementation of the server. Often, the resource corresponds to a file or the output of an executable residing on the server. The HTTP/1.0 specification[48] defined the GET, HEAD, and POST methods as well as listing the PUT, DELETE, LINK and UNLINK methods under additional methods. However, the HTTP/1.1 specification[49] formally defined and added five new methods: PUT, DELETE, CONNECT, OPTIONS, and TRACE. Any client can use any method and the server can be configured to support any combination of methods. If a method is unknown to an intermediate, it will be treated as an unsafe and non-idempotent method. There is no limit to the number of methods that can be defined, which allows for future methods to be specified without breaking existing infrastructure. For example, WebDAV defined seven new methods and RFC 5789 specified the PATCH method.
-
-Method names are case sensitive.[50][51] This is in contrast to HTTP header field names which are case-insensitive.[52]
-
-GET
-The GET method requests that the target resource transfer a representation of its state. GET requests should only retrieve data and should have no other effect. (This is also true of some other HTTP methods.)[1] For retrieving resources without making changes, GET is preferred over POST, as they can be addressed through a URL. This enables bookmarking and sharing and makes GET responses eligible for caching, which can save bandwidth. The W3C has published guidance principles on this distinction, saying, "Web application design should be informed by the above principles, but also by the relevant limitations."[53] See safe methods below.
-HEAD
-The HEAD method requests that the target resource transfer a representation of its state, as for a GET request, but without the representation data enclosed in the response body. This is useful for retrieving the representation metadata in the response header, without having to transfer the entire representation. Uses include checking whether a page is available through the status code and quickly finding the size of a file (Content-Length).
-POST
-The POST method requests that the target resource process the representation enclosed in the request according to the semantics of the target resource. For example, it is used for posting a message to an Internet forum, subscribing to a mailing list, or completing an online shopping transaction.[54]
-PUT
-The PUT method requests that the target resource create or update its state with the state defined by the representation enclosed in the request. A distinction from POST is that the client specifies the target location on the server.[55]
-DELETE
-The DELETE method requests that the target resource delete its state.
-CONNECT
-The CONNECT method requests that the intermediary establish a TCP/IP tunnel to the origin server identified by the request target. It is often used to secure connections through one or more HTTP proxies with TLS.[56][57] See HTTP CONNECT method.
-OPTIONS
-The OPTIONS method requests that the target resource transfer the HTTP methods that it supports. This can be used to check the functionality of a web server by requesting '*' instead of a specific resource.
-TRACE
-The TRACE method requests that the target resource transfer the received request in the response body. That way a client can see what (if any) changes or additions have been made by intermediaries.
-PATCH
-The PATCH method requests that the target resource modify its state according to the partial update defined in the representation enclosed in the request. This can save bandwidth by updating a part of a file or document without having to transfer it entirely.[58]
-All general-purpose web servers are required to implement at least the GET and HEAD methods, and all other methods are considered optional by the specification.[51]
-
-Properties of request methods
-Request method	RFC	Request has payload body	Response has payload body	Safe	Idempotent	Cacheable
-GET	RFC 9110	Optional	Yes	Yes	Yes	Yes
-HEAD	RFC 9110	Optional	No	Yes	Yes	Yes
-POST	RFC 9110	Yes	Yes	No	No	Yes
-PUT	RFC 9110	Yes	Yes	No	Yes	No
-DELETE	RFC 9110	Optional	Yes	No	Yes	No
-CONNECT	RFC 9110	Optional	Yes	No	No	No
-OPTIONS	RFC 9110	Optional	Yes	Yes	Yes	No
-TRACE	RFC 9110	No	Yes	Yes	Yes	No
-PATCH	RFC 5789	Yes	Yes	No	No	No
-Safe methods
-edit
-A request method is safe if a request with that method has no intended effect on the server. The methods GET, HEAD, OPTIONS, and TRACE are defined as safe. In other words, safe methods are intended to be read-only. They do not exclude side effects though, such as appending request information to a log file or charging an advertising account, since they are not requested by the client, by definition.
-
-In contrast, the methods POST, PUT, DELETE, CONNECT, and PATCH are not safe. They may modify the state of the server or have other effects such as sending an email. Such methods are therefore not usually used by conforming web robots or web crawlers; some that do not conform tend to make requests without regard to context or consequences.
-
-Despite the prescribed safety of GET requests, in practice their handling by the server is not technically limited in any way. Careless or deliberately irregular programming can allow GET requests to cause non-trivial changes on the server. This is discouraged because of the problems which can occur when web caching, search engines, and other automated agents make unintended changes on the server. For example, a website might allow deletion of a resource through a URL such as https://example.com/article/1234/delete, which, if arbitrarily fetched, even using GET, would simply delete the article.[59] A properly coded website would require a DELETE or POST method for this action, which non-malicious bots would not make.
-
-One example of this occurring in practice was during the short-lived Google Web Accelerator beta, which prefetched arbitrary URLs on the page a user was viewing, causing records to be automatically altered or deleted en masse. The beta was suspended only weeks after its first release, following widespread criticism.[60][59]
-
-Idempotent methods
-edit
-See also: Idempotence § Computer science meaning
-A request method is idempotent if multiple identical requests with that method have the same effect as a single such request. The methods PUT and DELETE, and safe methods are defined as idempotent. Safe methods are trivially idempotent, since they are intended to have no effect on the server whatsoever; the PUT and DELETE methods, meanwhile, are idempotent since successive identical requests will be ignored. A website might, for instance, set up a PUT endpoint to modify a user's recorded email address. If this endpoint is configured correctly, any requests which ask to change a user's email address to the same email address which is already recorded—e.g. duplicate requests following a successful request—will have no effect. Similarly, a request to DELETE a certain user will have no effect if that user has already been deleted.
-
-In contrast, the methods POST, CONNECT, and PATCH are not necessarily idempotent, and therefore sending an identical POST request multiple times may further modify the state of the server or have further effects, such as sending multiple emails. In some cases this is the desired effect, but in other cases it may occur accidentally. A user might, for example, inadvertently send multiple POST requests by clicking a button again if they were not given clear feedback that the first click was being processed. While web browsers may show alert dialog boxes to warn users in some cases where reloading a page may re-submit a POST request, it is generally up to the web application to handle cases where a POST request should not be submitted more than once.
-
-Note that whether or not a method is idempotent is not enforced by the protocol or web server. It is perfectly possible to write a web application in which (for example) a database insert or other non-idempotent action is triggered by a GET or other request. To do so against recommendations, however, may result in undesirable consequences, if a user agent assumes that repeating the same request is safe when it is not.
-
-Cacheable methods
-edit
-See also: Web cache
-A request method is cacheable if responses to requests with that method may be stored for future reuse. The methods GET, HEAD, and POST are defined as cacheable.
-
-In contrast, the methods PUT, DELETE, CONNECT, OPTIONS, TRACE, and PATCH are not cacheable.
-
-Request header fields
-edit
-See also: List of HTTP header fields § Request fields
-Request header fields allow the client to pass additional information beyond the request line, acting as request modifiers (similarly to the parameters of a procedure). They give information about the client, about the target resource, or about the expected handling of the request.
-
-HTTP/1.1 response messages
-edit
-
-A response message is sent by a server to a client as a reply to its former request message.[note 4]
-
-Response syntax
-edit
-A server sends response messages to the client, which consist of:[46]
-
-a status line, consisting of the protocol version, a space, the response status code, another space, a possibly empty reason phrase, a carriage return and a line feed, e.g.:
-HTTP/1.1 200 OK
-zero or more response header fields, each consisting of the case-insensitive field name, a colon, optional leading whitespace, the field value, an optional trailing whitespace and ending with a carriage return and a line feed, e.g.:
-Content-Type: text/html
-an empty line, consisting of a carriage return and a line feed;
-an optional message body.
-Response status codes
-edit
-See also: List of HTTP status codes
-In HTTP/1.0 and since, the first line of the HTTP response is called the status line and includes a numeric status code (such as "404") and a textual reason phrase (such as "Not Found"). The response status code is a three-digit integer code representing the result of the server's attempt to understand and satisfy the client's corresponding request. The way the client handles the response depends primarily on the status code, and secondarily on the other response header fields. Clients may not understand all registered status codes but they must understand their class (given by the first digit of the status code) and treat an unrecognized status code as being equivalent to the x00 status code of that class.
-
-The standard reason phrases are only recommendations, and can be replaced with "local equivalents" at the web developer's discretion. If the status code indicated a problem, the user agent might display the reason phrase to the user to provide further information about the nature of the problem. The standard also allows the user agent to attempt to interpret the reason phrase, though this might be unwise since the standard explicitly specifies that status codes are machine-readable and reason phrases are human-readable.
-
-The first digit of the status code defines its class:
-
-1XX (informational)
-The request was received, continuing process.
-2XX (successful)
-The request was successfully received, understood, and accepted.
-3XX (redirection)
-Further action needs to be taken in order to complete the request.
-4XX (client error)
-The request contains bad syntax or cannot be fulfilled.
-5XX (server error)
-The server failed to fulfill an apparently valid request.
-Response header fields
-edit
-See also: List of HTTP header fields § Response fields
-The response header fields allow the server to pass additional information beyond the status line, acting as response modifiers. They give information about the server or about further access to the target resource or related resources.
-
-Each response header field has a defined meaning which can be further refined by the semantics of the request method or response status code.
-
-HTTP/1.1 example of request / response transaction
-edit
-
-Below is a sample HTTP transaction between an HTTP/1.1 client and an HTTP/1.1 server running on www.example.com, port 80.[note 5][note 6]
-
-Client request
-edit
-GET / HTTP/1.1
-Host: www.example.com
-User-Agent: Mozilla/5.0
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
-Accept-Language: en-GB,en;q=0.5
-Accept-Encoding: gzip, deflate, br
-Connection: keep-alive
-A client request (consisting in this case of the request line and a few headers that can be reduced to only the "Host: hostname" header) is followed by a blank line, so that the request ends with a double end of line, each in the form of a carriage return followed by a line feed. The "Host: hostname" header value distinguishes between various DNS names sharing a single IP address, allowing name-based virtual hosting. While optional in HTTP/1.0, it is mandatory in HTTP/1.1. (A "/" (slash) will usually fetch a /index.html file if there is one.)
-
-Server response
-edit
-HTTP/1.1 200 OK
-Date: Mon, 23 May 2005 22:38:34 GMT
-Content-Type: text/html; charset=UTF-8
-Content-Length: 155
-Last-Modified: Wed, 08 Jan 2003 23:11:55 GMT
-Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)
-ETag: "3f80f-1b6-3e1cb03b"
-Accept-Ranges: bytes
-Connection: close
-
-<html>
-  <head>
-    <title>An Example Page</title>
-  </head>
-  <body>
-    <p>Hello World, this is a very simple HTML document.</p>
-  </body>
-</html>
-The ETag (entity tag) header field is used to determine if a cached version of the requested resource is identical to the current version of the resource on the server. "Content-Type" specifies the Internet media type of the data conveyed by the HTTP message, while "Content-Length" indicates its length in bytes. The HTTP/1.1 webserver publishes its ability to respond to requests for certain byte ranges of the document by setting the field "Accept-Ranges: bytes". This is useful, if the client needs to have only certain portions[61] of a resource sent by the server, which is called byte serving. When "Connection: close" is sent, it means that the web server will close the TCP connection immediately after the end of the transfer of this response.[21]
-
-Most of the header lines are optional but some are mandatory. When header "Content-Length: number" is missing in a response with an entity body then this should be considered an error in HTTP/1.0 but it may not be an error in HTTP/1.1 if header "Transfer-Encoding: chunked" is present. Chunked transfer encoding uses a chunk size of 0 to mark the end of the content. Some old implementations of HTTP/1.0 omitted the header "Content-Length" when the length of the body entity was not known at the beginning of the response and so the transfer of data to client continued until server closed the socket.
-
-A "Content-Encoding: gzip" can be used to inform the client that the body entity part of the transmitted data is compressed by gzip algorithm.
-
-Encrypted connections
-edit
-
-The most popular way of establishing an encrypted HTTP connection is HTTPS.[62] Two other methods for establishing an encrypted HTTP connection also exist: Secure Hypertext Transfer Protocol, and using the HTTP/1.1 Upgrade header to specify an upgrade to TLS. Browser support for these two is, however, nearly non-existent.[63][64][65]
-
-Similar protocols
-edit
-
-The Gopher protocol is a content delivery protocol that was displaced by HTTP in the early 1990s.
-The SPDY protocol is an alternative to HTTP developed at Google, superseded by HTTP/2.
-The Gemini protocol is a Gopher-inspired protocol which mandates privacy-related features.
-See also
-edit
-
-InterPlanetary File System – can replace HTTP
-Comparison of file transfer protocols
-Constrained Application Protocol – a semantically similar protocol to HTTP but used UDP or UDP-like messages targeted for devices with limited processing capability; re-uses HTTP and other internet concepts like Internet media type and web linking (RFC 5988)[66]
-Content negotiation
-Digest access authentication
-HTTP compression
-HTTP/2 – developed by the IETF's Hypertext Transfer Protocol (httpbis) working group[35]
-List of HTTP header fields
-List of HTTP status codes
-Representational state transfer (REST)
-Variant object
-Web cache
-WebSocket
-Notes
-edit
-
- In practice, these streams are used as multiple TCP/IP sub-connections to multiplex concurrent requests/responses, thus greatly reducing the number of real TCP/IP connections on server side, from 2..8 per client to 1, and allowing many more clients to be served at once.
- In 2022, HTTP/0.9 support has not been officially completely deprecated and is still present in many web servers and browsers (for server responses only), even if usually disabled. It is unclear how long it will take to decommission HTTP/0.9.
- Since late 1996, some developers of popular HTTP/1.0 browsers and servers (specially those who had planned support for HTTP/1.1 too), started to deploy (as an unofficial extension) a sort of keep-alive-mechanism (by using new HTTP headers) in order to keep the TCP/IP connection open for more than a request/response pair and so to speed up the exchange of multiple requests/responses.[31]
- HTTP/2 and HTTP/3 have a different representation for HTTP methods and headers.
- HTTP/1.0 has the same messages except for a few missing headers.
- HTTP/2 and HTTP/3 use the same request / response mechanism but with different representations for HTTP headers.
-References
-edit
-
- Fielding, R.; Nottingham, M.; Reschke, J. (June 2022). HTTP Semantics. IETF. doi:10.17487/RFC9110. RFC 9110.
- Tim Berner-Lee (1991-01-01). "The Original HTTP as defined in 1991". www.w3.org. World Wide Web Consortium. Retrieved 2010-07-24.
- Tim Berner-Lee (1992). "Basic HTTP as defined in 1992". www.w3.org. World Wide Web Consortium. Retrieved 2021-10-19.
- In RFC 1945. That specification was then overcome by HTTP/1.1.
- RFC 2068 (1997) was obsoleted by RFC 2616 in 1999, which was obsoleted by RFC 7230 in 2014, which was obsoleted by RFC 9110 in 2022.
- "Usage Statistics of Default protocol https for websites". w3techs.com. Retrieved 2024-01-05.
- "Usage Statistics of HTTP/2 for websites". w3techs.com. Retrieved 2024-01-05.
- "Can I use... Support tables for HTML5, CSS3, etc". caniuse.com. Retrieved 2024-01-05.
- Friedl, S.; Popov, A.; Langley, A.; Stephan, E. (July 2014). Transport Layer Security (TLS) Application-Layer Protocol Negotiation Extension. IETF. doi:10.17487/RFC7301. RFC 7301.
- Belshe, M.; Peon, R.; Thomson, M. "Hypertext Transfer Protocol Version 2, Use of TLS Features". Archived from the original on 2013-07-15. Retrieved 2015-02-10.
- Benjamin, David. Using TLS 1.3 with HTTP/2. doi:10.17487/RFC8740. RFC 8740. Retrieved 2020-06-02. This lowers the barrier for deploying TLS 1.3, a major security improvement over TLS 1.2.
- HTTP/3. 6 June 2022. doi:10.17487/RFC9114. RFC 9114. Retrieved 2022-06-06.
- "Usage Statistics of HTTP/3 for websites". w3techs.com. Retrieved 2024-01-08.
- "Can I use... Support tables for HTML5, CSS3, etc". canIuse.com. Retrieved 2024-01-08.
- Cimpanu, Catalin (26 September 2019). "Cloudflare, Google Chrome, and Firefox add HTTP/3 support". ZDNet. Retrieved 27 September 2019.
- "HTTP/3: the past, the present, and the future". The Cloudflare Blog. 2019-09-26. Retrieved 2019-10-30.
- "Firefox Nightly supports HTTP 3 – General – Cloudflare Community". 2019-11-19. Retrieved 2020-01-23.
- "HTTP/3 is Fast". Request Metrics. Retrieved 2022-07-01.
- "Connections, Clients, and Servers". RFC 9110, HTTP Semantics. sec. 3.3. doi:10.17487/RFC9110. RFC 9110.
- "Overall Operation". RFC 1945. pp. 6–8. sec. 1.3. doi:10.17487/RFC1945. RFC 1945.
- "Connection Management: Establishment". RFC 9112, HTTP/1.1. sec. 9.1. doi:10.17487/RFC9112. RFC 9112.
- "Connection Management: Persistence". RFC 9112, HTTP/1.1. sec. 9.3. doi:10.17487/RFC9112. RFC 9112.
- "Classic HTTP Documents". W3.org. 1998-05-14. Retrieved 2010-08-01.
- "HTTP/2 Protocol Overview". RFC 9113, HTTP/2). sec. 2. doi:10.17487/RFC7540. RFC 7540.
- "Invention Of The Web, Web History, Who Invented the Web, Tim Berners-Lee, Robert Cailliau, CERN, First Web Server". LivingInternet. Retrieved 2021-08-11.
- Berners-Lee, Tim (1990-10-02). "daemon.c - TCP/IP based server for HyperText". www.w3.org. Retrieved 2021-08-11.
- Berners-Lee, Tim. "HyperText Transfer Protocol". World Wide Web Consortium. Retrieved 31 August 2010.
- Raggett, Dave. "Dave Raggett's Bio". World Wide Web Consortium. Retrieved 11 June 2010.
- Raggett, Dave; Berners-Lee, Tim. "Hypertext Transfer Protocol Working Group". World Wide Web Consortium. Retrieved 29 September 2010.
- Raggett, Dave. "HTTP WG Plans". World Wide Web Consortium. Retrieved 29 September 2010.
- David Gourley; Brian Totty; Marjorie Sayer; Anshu Aggarwal; Sailu Reddy (2002). HTTP: The Definitive Guide. (excerpt of chapter: "Persistent Connections"). O'Reilly Media, inc. ISBN 9781565925090. Retrieved 2021-10-18.
- "HTTP/1.1". Webcom.com Glossary entry. Archived from the original on 2001-11-21. Retrieved 2009-05-29.
- "HTTP-NG Working Group". www.w3.org. World Wide Web Consortium. 1997. Retrieved 2021-10-19.
- Web Administrator (2007). "HTTP Working Group". httpwg.org. IETF. Retrieved 2021-10-19.
- Web Administrator (2007). "HTTP Working Group: charter httpbis". datatracker.ietf.org. IETF. Retrieved 2021-10-19.
- "SPDY: An experimental protocol for a faster web". dev.chromium.org. Google. 2009-11-01. Retrieved 2021-10-19.
- "Rechartering httpbis". IETF; HTTP WG. 2012-01-24. Retrieved 2021-10-19.
- IESG Secretary (2012-03-19). "WG Action: RECHARTER: Hypertext Transfer Protocol Bis (httpbis)". IETF; HTTP WG. Retrieved 2021-10-19.
- Ilya Grigorik; Surma (2019-09-03). "High Performance Browser Networking: Introduction to HTTP/2". developers.google.com. Google Inc. Retrieved 2021-10-19.
- "Appendix-A: HTTP Version History". RFC 7230, HTTP/1.1: Message Syntax and Routing. p. 78. sec. A. doi:10.17487/RFC7230. RFC 7230.
- Matt Menke (2016-06-30). "Intent to Deprecate and Remove: HTTP/0.9 Support". groups.google.com. Retrieved 2021-10-15.
- HTTP/3. 6 June 2022. doi:10.17487/RFC9114. RFC 9114. Retrieved 2022-06-06.
- "http URI Scheme". RFC 9110, HTTP Semantics. sec. 4.2.1. doi:10.17487/RFC9110. RFC 9110.
- "https URI Scheme". RFC 9110, HTTP Semantics. sec. 4.2.2. doi:10.17487/RFC9110. RFC 9110.
- Lee, Wei-Bin; Chen, Hsing-Bai; Chang, Shun-Shyan; Chen, Tzung-Her (2019-01-25). "Secure and efficient protection for HTTP cookies with self-verification". International Journal of Communication Systems. 32 (2): e3857. doi:10.1002/dac.3857. S2CID 59524143.
- "Message format". RFC 9112: HTTP/1.1. sec. 2.1. doi:10.17487/RFC9112. RFC 9112.
- "Apache Week. HTTP/1.1". 090502 apacheweek.com
- Berners-Lee, Tim; Fielding, Roy T.; Nielsen, Henrik Frystyk. "Method Definitions". Hypertext Transfer Protocol – HTTP/1.0. IETF. pp. 30–32. sec. 8. doi:10.17487/RFC1945. RFC 1945.
- "Method Definitions". RFC 2616. pp. 51–57. sec. 9. doi:10.17487/RFC2616. RFC 2616.
- "Request Line". RFC 9112, HTTP/1.1. sec. 3. doi:10.17487/RFC9112. RFC 9112.
- "Methods: Overview". RFC 9110, HTTP Semantics. sec. 9.1. doi:10.17487/RFC9110. RFC 9110.
- "Header Fields". RFC 9110, HTTP Semantics. sec. 6.3. doi:10.17487/RFC9110. RFC 9110.
- Jacobs, Ian (2004). "URIs, Addressability, and the use of HTTP GET and POST". Technical Architecture Group finding. W3C. Retrieved 26 September 2010.
- "POST". RFC 9110, HTTP Semantics. sec. 9.3.3. doi:10.17487/RFC9110. RFC 9110.
- "PUT". RFC 9110, HTTP Semantics. sec. 9.3.4. doi:10.17487/RFC9110. RFC 9110.
- "CONNECT". RFC 9110, HTTP Semantics. sec. 9.3.6. doi:10.17487/RFC9110. RFC 9110.
- "Vulnerability Note VU#150227: HTTP proxy default configurations allow arbitrary TCP connections". US-CERT. 2002-05-17. Retrieved 2007-05-10.
- Dusseault, Lisa; Snell, James M. (March 2010). PATCH Method for HTTP. IETF. doi:10.17487/RFC5789. RFC 5789.
- Ediger, Brad (2007-12-21). Advanced Rails: Building Industrial-Strength Web Apps in Record Time. O'Reilly Media, Inc. p. 188. ISBN 978-0596519728. A common mistake is to use GET for an action that updates a resource. [...] This problem came into the Rails public eye in 2005, when the Google Web Accelerator was released.
- Cantrell, Christian (2005-06-01). "What Have We Learned From the Google Web Accelerator?". Adobe Blogs. Adobe. Archived from the original on 2017-08-19. Retrieved 2018-11-19.
- Luotonen, Ari; Franks, John (February 22, 1996). Byte Range Retrieval Extension to HTTP. IETF. I-D draft-ietf-http-range-retrieval-00.
- Canavan, John (2001). Fundamentals of Networking Security. Norwood, MA: Artech House. pp. 82–83. ISBN 9781580531764.
- Zalewski, Michal. "Browser Security Handbook". Retrieved 30 April 2015.
- "Chromium Issue 4527: implement RFC 2817: Upgrading to TLS Within HTTP/1.1". Retrieved 30 April 2015.
- "Mozilla Bug 276813 – [RFE] Support RFC 2817 / TLS Upgrade for HTTP 1.1". Retrieved 30 April 2015.
- Nottingham, Mark (October 2010). Web Linking. IETF. doi:10.17487/RFC5988. RFC 5988.
-External links
-edit
-
-
-Wikibooks has a book on the topic of: Communication Networks/HTTP Protocol
-
-Wikimedia Commons has media related to Hypertext Transfer Protocol.
-Official website Edit this at Wikidata
-IETF HTTP Working Group on GitHub
-"Change History for HTTP". W3.org. Retrieved 2010-08-01. A detailed technical history of HTTP.
-"Design Issues for HTTP". W3.org. Retrieved 2010-08-01. Design Issues by Berners-Lee when he was designing the protocol.
-
-
-Last edited 1 day ago by Annh07
-RELATED ARTICLES
-HTTP 403
-HTTP status code indicating that access is forbidden to a resource
-List of HTTP header fields
-List of HTTP status codes
-Response codes of the Hypertext Transfer Protocol
- Wikipedia
-Content is available under CC BY-SA 4.0 unless otherwise noted.
-Privacy policy Terms of Use Desktop
+GitHub Data Protection Agreement
+This GitHub Data Protection Agreement forms part of the GitHub Customer Agreement between Customer (“You”) and GitHub, Inc., (“GitHub”) covering Your legal entity’s use of the Online Services. It sets forth the parties’ obligations with respect to Customer Personal Data processed by GitHub. Capitalized terms not defined in this document shall have the meaning as provided elsewhere in your GitHub Customer Agreement.
+1. Definitions.
+A. “CCPA”meanstheCaliforniaConsumerPrivacyAct(Cal.Civ.Code§1798.100etseq)
+and its implementing regulations.
+B. “CustomerPersonalData”meansalldata,includingalltext,sound,video,orimage files, and software, that are provided to GitHub by or on behalf of Customer through use of the Online Services.
+C. “DPA” means this GitHub Data Protection Agreement.
+D. “DataProtectionRequirements”meanstheapplicableobligationsimposedon GitHub by the GDPR, any subordinate legislation or regulations implementing the GDPR, the CCPA, and any other applicable laws, regulations, and other legal requirements applicable to GitHub and relating to:
+i. Privacy and data security; or
+ii. The use, collection, retention, storage, security, disclosure, transfer, disposal, and other processing of any Personal Data.
+E. “GDPR” means:
+i. Regulation (EU) 2016/679 of the European Parliament and of the Council of
+27 April 2016; and
+i. Regulation (EU) 2016/679 as transposed into national law of the United Kingdom by the UK European Union (Withdrawal) Act 2018 and amended by the UK Data Protection, Privacy and Electronic Communications (Amendments etc.) (EU Exit) Regulations 2019 (as may be amended from time to time).
+F. “GitHub Affiliate” means any entity that controls GitHub, is controlled by GitHub, or is under common control with GitHub.
+G. “GitHubCustomerAgreement”or“Agreement”meansYouragreement(s)forthe Online Services.
+H. “Instructions”meantheactivitiesyouinstructGitHubtoperformasProcessor acting on Your behalf.
+I. “Online Services” means any service or software that GitHub provides You under a written and executed agreement.
+GitHub Data Protection Agreement (September 2023)
+1
+
+ J. “Preview” means Online Services provided for preview, evaluation, demonstration, or trial purposes, and any beta, technical preview, or other pre-release versions of the Online Services.
+K. “ProfessionalServices”meanstraining,consultingorimplementationservices provided by GitHub. Professional Services do not include support.
+L. “Professional Services Data” means all Customer Personal Data that are provided to GitHub, by or on behalf of a Customer or that Customer authorizes GitHub to obtain from an Online Service or otherwise obtained or processed by or on behalf of GitHub through an engagement with GitHub to obtain Professional Services.
+M. “Security Incident” means a breach of security leading to the accidental or unlawful destruction, loss, alteration, unauthorized disclosure of, or access to Customer Personal Data processed by GitHub on Your behalf.
+N. “StandardContractualClauses”or“SCCs”means:
+i. where the GDPR applies the contractual clauses annexed to the European Commission's Implementing Decision 2021/914 of 4 June 2021 on standard contractual clauses for the transfer of Personal Data to third countries pursuant to Regulation (EU) 2016/679 of the European Parliament and of the Council (the “EU SCCs”);
+ii. where the UK GDPR applies, the “International Data Transfer Addendum to the EU Commission Standard Contractual Clauses” issued by the Information Commissioner under s.119A(1) of the Data Protection Act 2018 (“UK Addendum”); and
+iii. wheretheSwissDataProtectionAct(“SwissDPA”)applies,theapplicable standard data protection clauses issued, approved or otherwise recognized by the Swiss Federal Data Protection and Information Commissioner (“FDPIC”) (the “Swiss SCCs”).
+O. “Subprocessor”meansathird-partyProcessorretainedbyGitHubtoprocessYour data.
+P. “Subprocessor List” means the list of Subprocessors identified on the GitHub website at https://github.com/subprocessors or a successor location.
+Q. “Troubleshooting”meanspreventing,detecting,investigating,mitigating,and repairing problems, including Security Incidents and problems identified in the relevant products. Troubleshooting includes fixing software defects and otherwise keeping the Online Services up to date and performant.
+R. “Controller,”“DataSubject,”“PersonalData,”“Process,”and“Processor”havethe meanings ascribed to them in the GDPR.
+ 2. Scope
+A. ThisDPAappliestoallOnlineServicesexcept:
+and Order of Precedence.
+GitHub Data Protection Agreement (September 2023)
+2
+
+ i. Products specifically identified as excluded in bespoke GitHub product terms, in which case those terms shall control so long as such terms are compliant with Data Protection Requirements, and
+ii. Previews, which may employ privacy and security measures that are different from those normally provided in Online Services and offered under Preview Terms. Unless otherwise noted, Customers should not use Previews to process Personal Data or other data that is subject to legal or regulatory compliance requirements.
+B. IntheeventofanyotherconflictorinconsistencybetweenthetermsofthisDPA Terms and any other terms in the GitHub Customer Agreement, the terms of this DPA shall prevail. The terms of this DPA shall supersede any conflicting provisions with respect to the processing of Customer Personal Data or Professional Services Data.
+3. Processing Roles and Responsibilities.
+A. Roles.YouaretheControllerofCustomerPersonalData,andwearetheProcessor
+of that data, unless:
+i. You are the Processor of the Customer Personal Data. In that case, GitHub is a Subprocessor;
+ii. GitHub is an independent Controller processing Customer Personal Data for the purposes listed in Section 3.C of this DPA; or
+iii. Otherwiseexpresslystatedinthespecifictermsapplicabletoaparticular Online Service in accordance with Section 2.A.
+B. YourProcessingInstructionstoGitHub.YouinstructGitHubtoperformthe following activities as Processor acting on Your behalf:
+i. Provide Online Services by:
+a. Providing and updating the Online Services as configured and used by You or Your users, and to make ongoing personalized experiences and recommendations;
+b. Troubleshooting; and
+c. Keeping Online Services up to date and performant, and enhancing user productivity, reliability, efficacy, quality, privacy, accessibility and security.
+ii. Provide Professional Services by:
+a. Delivering the Professional Services, including providing technical support, professional planning, advice, guidance, data migration, deployment, and solution/software development services;
+b. Troubleshooting in connection with Professional Services; and
+GitHub Data Protection Agreement (September 2023)
+3
+
+ c. Enhancing delivery, efficacy, quality, and security of Professional Services and the underlying product(s) based on issues identified while providing Professional Services, including fixing software defects, and otherwise keeping the Professional Services up to date and performant.
+iii. ProcessCustomerPersonalDataassetoutin:
+a. Your GitHub Customer Agreement;
+b. Annex I to the Standard Contractual Clauses; and
+c. any other documented instruction provided by You and acknowledged in writing by GitHub as constituting instructions for purposes of this DPA.
+C. GitHub’s Independent Processing of Data. GitHub Processes some Customer Personal Data as an independent Controller. GitHub conducts such processing in compliance with Data Protection Requirements generally, and the GDPR specifically, and in a manner consistent with the purposes outlined in the GitHub Privacy Statement. Those exhaustive purposes are restated here for transparency and convenience:
+i. account, billing, and customer relationship management and related customer correspondence;
+ii. compensation (e.g., calculating employee commissions and partner incentives);
+iii. complyingwithandresolvinglegalobligations,includingrespondingtoData Subject requests for Personal Data processed by GitHub as Controller (for example website data), tax requirements, agreements, and disputes;
+iv. abusedetection,prevention,andprotection,virusscanning,andscanningto detect violations of terms of service and,
+v. creating aggregated statistical data for internal reporting, financial reporting, revenue planning, capacity planning, and forecast modeling (including product strategy).
+GitHub will not use or otherwise process Customer Personal Data for: (a) user profiling, (b) advertising or similar commercial purposes, (c) data selling or brokering, or (d) any other purpose, other than for the purposes set out in this section. You agree that GitHub may conduct this Processing.
+D. LawfulnessofInstructions.
+i. It is Your responsibility to ensure that Your Instructions comply with Data Protection Requirements. GitHub is not responsible for determining what laws or regulations apply to Your business, or for determining whether GitHub’s provision of services meets the requirements of such laws.
+   GitHub Data Protection Agreement (September 2023)
+4
+
+ ii. You will ensure that processing Customer Personal Data in accordance with your Instructions will not cause GitHub to violate any law or regulation, including Data Protection Requirements.
+iii. GitHubwillinformyouifitbecomesaware,orreasonablybelieves,thatYour Instructions violate any applicable law or regulation.
+E. Additional Instructions. The parties will agree to additional instructions outside the scope of the GitHub Customer Agreement or DPA in writing.
+F. Disclosure of Customer Personal Data.
+i. GitHub will not disclose or provide access to any Customer Personal Data unless it is:
+a. in accordance with Your Instructions; or
+b. as described in this DPA; or
+c. required by law, in which case the Additional Safeguards Addendum in Annex IV to the Standard Contractual Clauses will apply.
+ii. GitHub will not disclose or provide access to any Customer Personal Data to law enforcement unless required by law or compelled by legal process. Requests by law enforcement for Customer Personal Data will be directed to You where possible.
+iii. GitHubwillcontactYouifdisclosureofYourCustomerPersonalDatais compelled and provide a copy of the legal process compelling the disclosure, unless we are legally prohibited from doing so.
+G. DataSubjectRights.IfGitHubreceivesarequestfromoneofYourDataSubjects pertaining to an Online Service where GitHub functions as Your Processor or Subprocessor, GitHub will redirect the Data Subject to You. Consistent with the functionality of the Online Services and GitHub's role, we will cooperate with You and provide You the necessary means to respond. You are solely responsible for responding to these requests.
+4. Security. GitHub will implement and maintain appropriate technical and organizational measures and security safeguards as set out in Annex II to the Standard Contractual Clauses. You and GitHub shall implement appropriate technical and organizational measures to ensure a level of security appropriate to the risk, including as appropriate:
+A. thepseudonymisationandencryptionofPersonalData;
+B. theabilitytoensuretheongoingconfidentiality,integrity,availability,andresilience
+of processing systems and services;
+C. the ability to restore the availability and access to Personal Data in a timely manner in the event of a physical or technical incident; and,
+   GitHub Data Protection Agreement (September 2023)
+5
+
+ a process for regularly testing, assessing, and evaluating the effectiveness of technical
+and organizational measures for ensuring the security of the processing.
+5. Audit. GitHub will provide You with security compliance reporting, such as external SOC1
+Type 2 and SOC2 Type 2 and ISO 27001 audit reports, upon Your request. Should You be required to respond to a regulatory or supervisory request that requires GitHub’s participation, and Your obligations cannot reasonably be satisfied with GitHub’s standard security compliance reports, GitHub will promptly respond to Your additional Instructions and requests for information, in accordance with the following terms and conditions:
+A. GitHubwillprovideaccesstorelevantknowledgeablepersonnel,documentation, and application software.
+B. YouandGitHubwillagreeinwritinguponthescope,timing,duration,control,and evidence requirements.
+C. Unless GitHub is otherwise required by law or a supervisory authority of competent jurisdiction, GitHub will provide such access:
+i. if the regulator or supervisory authority uses an independent and accredited third-party audit firm;
+ii. during regular business hours;
+iii. on30daysadvancewrittennotice;and
+iv. onlytoYourdataandtothoseGitHubsystemsorfacilitiesinvolvedinthe relevant Online Services. Neither You, Your regulators, or Your regulators’ delegates shall have access to any data from GitHub’s other customers or to GitHub systems or facilities not involved in the Online Services.
+D. YouwillcompensateGitHubfortheexpensesincurredbyourcooperation,including all out-of-pocket costs and reasonable costs and fees for time GitHub expends, or services GitHub provides, in connection with such cooperation.
+E. Unless prohibited by law from doing so, You will share with GitHub any reports, findings, or recommended actions pertaining to GitHub.
+6. Security Incidents.
+A. IfGitHubbecomesawareofaSecurityIncident,GitHubwillwithoutunduedelay:
+i. notify You of the Security Incident, in accordance with the notice provisions in this DPA;
+ii. investigate the Security Incident and provide detailed information about it; and,
+iii. takereasonablestepstomitigateitseffectsandminimizeanyresulting damage.
+B. GitHub’snotificationoforresponsetoaSecurityIncidentunderthissectionisnot an acknowledgement of any fault or liability.
+GitHub Data Protection Agreement (September 2023)
+6
+
+ C. You are solely responsible for complying with Your obligations under any incident notification laws. GitHub will assist you to the extent required under applicable law in fulfilling Your obligation to notify the relevant authorities and data subjects.
+D. YoumustnotifyGitHubpromptlyaboutanypossiblemisuseofYouraccountsor authentication credentials, or any Security Incident related to an Online Service.
+7. Data Transfers and Location. You appoint GitHub to transfer Customer Personal Data to the United States or any other country in which GitHub or its Subprocessors operate, and to store and process Customer Personal Data to provide the Online Services, subject to the safeguards below and described elsewhere in this DPA.
+A. GitHubmaytransferandprocessCustomerPersonalDatatoandintheUnited States, to third-party countries (including those outside of the European Economic Area (“EEA”) without an adequacy statement from the European Commission), and to Subprocessors, GitHub Affiliates, and our professional advisors. GitHub shall ensure that such transfers are made in compliance with Data Protection Requirements and this DPA.
+B. AnytransferofCustomerPersonalDatasubjecttothisDPAfrommemberstatesof the EU, EEA, Switzerland, or the United Kingdom to any countries where the European Commission, the FDPIC, or the UK Information Commissioner's Office has not decided that the third country or more specified sectors within that third country ensures an adequate level of protection, shall be undertaken:
+i. subject to GitHub’s self-certification to the EU-US Data Privacy Framework and, as applicable, the UK Extension to the EU-US Data Privacy Framework and/or the Swiss-US Data Privacy Framework; and/or
+ii. through the Standard Contractual Clauses.
+C. For the Standard Contractual Clauses, the Parties agree:
+i. Controller to Controller Transfers. The SCCs shall apply to Personal Data that is protected by the GDPR and processed in accordance with Section 3.C of this DPA, completed as follows:
+a. Module One will apply;
+b. in Clause 7, the optional docking clause will apply;
+c. in Clause 11, the optional language will not apply;
+d. in Clause 17, Option 1 will apply, and the New EU SCCs will be governed by the law of the Netherlands; and,
+e. in Clause 18(b), disputes shall be resolved before the courts of the Netherlands.
+GitHub Data Protection Agreement (September 2023)
+7
+
+ ii. Controller to Processor/Processor to Processor Transfers. The SCCs shall apply to Personal Data that is protected by the GDPR and processed in accordance with Section 3.B of this DPA, completed as follows:
+a. Module Two or Module Three will apply (as applicable);
+b. in Clause 7, the optional docking clause will apply;
+c. in Clause 9, Option 2 will apply, and the time period for prior notice of Subprocessor changes shall be as set out in Section 9 of this DPA;
+d. in Clause 11, the optional language will not apply;
+e. in Clause 17, Option 1 will apply, and the EU SCCs will be governed by the law of the Netherlands; and,
+f. in Clause 18(b), disputes shall be resolved before the courts of the Netherlands.
+iii. TransfersfromtheUK.InrelationtoPersonalDatathatisprotectedbythe UK GDPR, the UK Addendum will apply, completed as follows:
+a. The SCCs shall also apply to transfers of such Personal Data, subject to sub-section (b) below;
+b. Tables 1 to 3 of the UK Addendum shall be deemed completed with relevant information from the SCCs, completed as set out in Section 7.B.(i)-(ii) of this DPA, and the option “neither party” shall be deemed checked in Table 4; and,
+c. The start date of the UK Addendum (as set out in Table 1) shall be the date of this DPA.
+iv. TransfersfromSwitzerland.InrelationtoPersonalDatathatisprotectedby the Swiss DPA, the EU SCCs will apply in accordance with Sections 7.B.(i)-(ii) with the following modifications:
+a. any references in the EU SCCs to “Directive 95/46/EC” or “Regulation (EU) 2016/679” shall be interpreted as references to the Swiss Federal Data Protection Act;
+b. references to “EU”, “Union”, “Member State” and “Member State law” shall be interpreted as references to Switzerland and Swiss law, as applicable; and,
+c. references to the “competent supervisory authority” and “competent courts” shall be interpreted as references to the FDPIC and competent courts in Switzerland, unless the SCCs as implemented above cannot be used to lawfully transfer such Personal Data in compliance with the Swiss DPA, in which event the Swiss SCCs shall instead be incorporated by reference and form an integral part of this
+GitHub Data Protection Agreement (September 2023)
+8
+
+ DPA and shall apply to such transfers. Where this is the case, the relevant Annexes of the Swiss SCCs shall be populated using the information contained in Annexes I and II of this DPA.
+8. Retention and Deletion. Following the completion of the Services, to the extent that GitHub is a Processor and unless prohibited by law, GitHub will delete or return all the Customer Personal Data to You, whichever you elect, and delete existing copies in accordance with our retention and deletion policy.
+9. Subprocessors.
+A. GitHubmayhireSubprocessorsofourchoosing.Theaboveauthorizationconstitutes
+Your prior written consent to GitHub subcontracting the processing of Personal Data to any Subprocessor on the Subprocessor List.
+B. Fromtimetotime,GitHubmayengagenewSubprocessors.GitHubwillgiveYou notice of such engagements by updating the Subprocessor List and providing You with notice of that update (by the means set forth at https://gh.io/subscribe) 30 days before providing that Subprocessor with access to Customer Personal Data.
+C. If You do not approve of a new Subprocessor, You may terminate any subscription for the affected Online Services without penalty by providing written notice of termination before the end of the relevant notice period. If the affected Online Service is part of a suite or purchased as part of a bundle, then any termination will apply to the entire suite or bundle.
+D. GitHubisresponsibleforourSubprocessors’compliancewithGitHub’sobligationsin this DPA, and will engage such Subprocessors by written agreements compliant with the requirements of the GDPR governing the use of Subprocessors. GitHub will oversee the Subprocessors to ensure that their contractual obligations are met.
+10. CCPA. If and to the extent GitHub is processing Personal Data within the scope of the CCPA on Your behalf and in accordance with Your documented Instructions, GitHub will not:
+A. sellthePersonalDataastheterm“selling”isdefinedintheCCPA;
+B. share,rent,release,disclose,disseminate,makeavailable,transfer,orotherwise communicate orally, in writing, or by electronic or other means, the Personal Data to a third party for cross-context behavioral advertising, whether or not for monetary or other valuable consideration, including transactions for cross-context behavioral advertising in which no money is exchanged;
+C. retain, use, or disclose the Personal Data for any purpose other than for the business purposes specified in this DPA and the GitHub Customer Agreement, or as otherwise permitted by the CCPA;
+D. retain,use,ordisclosethePersonalDataoutsideofthedirectbusinessrelationship with Customer; or
+E. combine the Personal Data with personal information that it receives from or on behalf of a third party or collects from California residents, except that GitHub may
+ GitHub Data Protection Agreement (September 2023)
+9
+
+ combine Personal Data to perform any business purpose as permitted by the CCPA or any regulations adopted or issued under the CCPA.
+11. Educational Institutions.
+A. IfYouareaneducationalagencyorinstitutionsubjecttotheregulationsunderthe
+Family Educational Rights and Privacy Act, 20 U.S.C. § 1232g (FERPA), or similar state student or educational privacy laws (collectively “Educational Privacy Laws”), You shall not provide Personal Data covered by such Educational Privacy Laws to GitHub without obtaining GitHub’s prior, written, and specific consent expressly reciting GitHub’s agreement to accept Personal Data subject to an Educational Privacy Law, and entering into a separate agreement with GitHub governing the parties’ rights and obligations with respect to the processing of such Personal Data by GitHub in connection with the Online Services.
+B. Withoutwaiveroftheabove,orlimitingGitHub’sremediesintheeventofabreach of the above provision, if You breach the above provision by providing GitHub any Personal Data covered by FERPA without such a separate agreement, You agree and acknowledge that, for the purposes of this DPA, GitHub is a “school official” with “legitimate educational interests” in the Personal Data, as those terms have been defined under FERPA and its implementing regulations. You understand GitHub may possess limited or no contact information for Your students and students’ parents. Consequently, You are responsible for obtaining any student or parental consent that may be required by applicable law for any end user’s use of the Online Services and to convey notification on behalf of GitHub to students (or a student’s legal guardian when required) of any judicial order or lawfully issued subpoena requiring the disclosure of Personal Data in GitHub’s possession as may be required under applicable law.
+12. CJIS Customer Agreement, HIPAA Business Associate, Biometric Data. Except with GitHub’s prior, written, and specific consent, You shall not provide GitHub any Personal Data:
+A. relatingtocriminalconvictionsandoffensesorPersonalDatacollectedorotherwise processed by Customer subject to or in connection with FBI Criminal Justice Information Services or the related Security Policy;
+B. constitutingprotectedhealthinformationgovernedbytheprivacy,security,and breach notification rules issued by the United States Department of Health and Human Services, Parts 160 and 164 of Title 45 of the Code of Federal Regulations, established pursuant to the Health Insurance Portability and Accountability Act of 1996 (Public Law 104-191) or by state health or medical privacy laws;
+C. collected as part of a clinical trial or other biomedical research study subject to, or conducted in accordance with, the Federal Policy for the Protection of Human Subjects; or
+D. coveredbystate,federal,orforeignbiometricprivacylawsorotherwiseconstituting biometric information including information on an individual’s physical,
+GitHub Data Protection Agreement (September 2023)
+10
+
+ physiological, biological, or behavioral characteristics or information derived from such information that is used or intended to be used, singly or in combination with each other or with other information, to establish individual identity.
+13. Breach. If You believe that GitHub is in breach of our obligations under this DPA, you must provide GitHub with notice of such breach and GitHub shall have 14 business days to cure any such breach.
+14. Notices.
+A. NoticestoGitHub.YouwillprovidenoticestoGitHubby:
+i. Contacting customer support, or using GitHub’s Privacy web form located at https://support.github.com/contact/privacy, with a copy emailed to GitHub’s Data Protection Officer at dpo@github.com and a copy mailed to:
+GitHub Privacy
+GitHub, Inc.
+88 Colin P. Kelly Jr. Street
+San Francisco, California 94107 USA
+or
+ii. The method provided for in Your GitHub Customer Agreement.
+B. NoticestoYou.GitHubmayprovidenoticestoYouby:
+i. The method provided for in Your GitHub Customer Agreement; or
+ii. Any means of notifying Your administrator(s), including email, that GitHub selects. It is Your obligation to maintain accurate contact information with GitHub, and You will monitor any contact address provided to GitHub so that You can receive and respond to such Notices.
+  GitHub Data Protection Agreement (September 2023)
+11
+
+ DPA Attachment 1
+ANNEX I to the Standard Contractual Clauses (EU/EEA)
+A. LIST OF PARTIES
+MODULE ONE: CONTROLLER TO CONTROLLER MODULE TWO: CONTROLLER TO PROCESSOR MODULE THREE: PROCESSOR TO PROCESSOR
+Data exporter(s) for the above modules:
+Name and contact details: as set out in the Agreement.
+Activities relevant to the data transferred under these Clauses: as set out in the Agreement.
+Signature and date: Annex 1 is deemed to be executed on the date the transfer commenced or the date that the Agreement was executed, whichever is earlier.
+Role: MODULE ONE: CONTROLLER, MODULE TWO: CONTROLLER, MODULE THREE: PROCESSOR
+Data importer(s):
+Name and contact details: as set out in the Agreement.
+Activities relevant to the data transferred under these Clauses: as set out in the Agreement.
+Signature and date: Annex 1 is deemed to be executed on the date the transfer commenced or the date that the Agreement was executed, whichever is earlier.
+Role: MODULE ONE: CONTROLLER, MODULE TWO: PROCESSOR, MODULE THREE: (SUB)PROCESSOR
+B. Description of Transfer
+MODULE ONE: CONTROLLER TO CONTROLLER MODULE TWO: CONTROLLER TO PROCESSOR MODULE THREE: PROCESSOR TO PROCESSOR
+Categories of data subjects whose personal data is transferred:
+Data subjects include the data exporter’s representatives and end-users including employees, contractors, collaborators, and customers of the data exporter. Data subjects may also include individuals attempting to communicate or transfer personal data to users of the services provided by data importer. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following types of data subjects in the personal data:
+GitHub Data Protection Agreement (September 2023)
+12
+
+ ● Employees, contractors, and temporary workers (current, former, prospective) of data exporter;
+● Data exporter’s collaborators/contact persons (natural persons) or employees, contractors, or temporary workers of legal entity collaborators/contact persons (current, prospective, former);
+● Users and other data subjects that are users of data exporter’s services;
+● Partners, stakeholders, or individuals who actively collaborate, communicate, or
+otherwise interact with employees of the data exporter and/or use communication tools such as apps and websites provided by the data exporter.
+Categories of personal data transferred:
+The personal data transferred that is included in e-mail, documents, and other data in an electronic form in the context of the Online Services or Professional Services. GitHub acknowledges that, depending on Customer’s use of the Online Service or Professional Services, Customer may elect to include personal data from any of the following categories in the personal data:
+● Basic personal data (for example place of birth, street name and house number (address), postal code, city of residence, country of residence, mobile phone number, first name, last name, initials, email address, gender, date of birth);
+● Authentication data (for example username, password or PIN code, security question, audit trail);
+● Contact information (for example addresses, email, phone numbers, social media identifiers; emergency contact details);
+● Pseudonymous identifiers;
+● Device identification (for example IMEI-number, SIM card number, MAC address); or
+● Any other personal data identified in Article 4 of the GDPR.
+Sensitive data transferred (if applicable) and applied restrictions or safeguards that fully take into consideration the nature of the data and the risks involved, such as for instance strict purpose limitation, access restrictions (including access only for staff having followed specialised training), keeping a record of access to the data, restrictions for onward transfers or additional security measures:
+GitHub does not request or otherwise ask for sensitive data and receives such data only if and when customers or data subjects decide to provide it.
+The frequency of the transfer (e.g. whether the data is transferred on a one-off or continuous basis):
+Continuous as part of the Online Services or Professional Services.
+Nature of the processing:
+GitHub Data Protection Agreement (September 2023)
+13
+
+ The personal data transferred will be subject to the following basic processing activities:
+● Duration and Object of Data Processing. The duration of data processing shall be for the term designated under the applicable GitHub Customer Agreement between data exporter and the data importer. The objective of the data processing is the performance of Online Services and Professional Services.
+● Personal Data Access. For the term designated under the applicable GitHub Customer Agreement, data importer will, at its election and as necessary under applicable law, either: (1) provide data exporter with the ability to correct, delete, or block personal data, or (2) make such corrections, deletions, or blockages on its behalf.
+● Data Exporter’s Instructions. For Online Services and Professional Services, data importer will only act upon data exporter’s instructions and the Agreement.
+Purpose(s) of the data transfer and further processing:
+The scope and purpose of processing personal data is described in DPA Sections 2 and 3 on Scope and Processing Roles. Processing may take place in any jurisdiction where data importer or its subprocessors operate such facilities in accordance with Section 7 on Data Transfers and Locations.
+The period for which the personal data will be retained, or, if that is not possible, the criteria used to determine that period:
+Upon expiration or termination of data exporter’s use of Online Services or Professional Services, it may extract personal data and data importer will delete personal data, each in accordance with the DPA terms applicable to the agreement.
+For transfers to (sub-) processors, also specify subject matter, nature and duration of the processing:
+In accordance with the DPA, the data importer may hire other companies to provide limited services on data importer’s behalf, such as providing customer support. Any such subcontractors will be permitted to obtain personal data only to deliver the services the data importer has retained them to provide, and they are prohibited from using personal data for any other purpose. Unless a particular subcontractor is replaced ahead of time, the processing will be for the term designated under the applicable GitHub Customer Agreement between data exporter and data importer.
+C. COMPETENTSUPERVISORYAUTHORITY MODULE ONE: CONTROLLER TO CONTROLLER MODULE TWO: CONTROLLER TO PROCESSOR MODULE THREE: PROCESSOR TO PROCESSOR
+GitHub Data Protection Agreement (September 2023)
+14
+
+ The supervisory authority with responsibility for ensuring compliance by the data exporter with Regulation (EU) 2016/679.
+GitHub Data Protection Agreement (September 2023)
+15
+
+ DPA Attachment 2
+Annex II to the Standard Contractual Clauses (EU/EEA)
+MODULE ONE: CONTROLLER TO CONTROLLER MODULE TWO: CONTROLLER TO PROCESSOR MODULE THREE: PROCESSOR TO PROCESSOR
+A. TECHNICALANDORGANISATIONALMEASURESINCLUDINGTECHNICALAND ORGANISATIONAL MEASURES TO ENSURE THE SECURITY OF THE DATA
+Description of the technical and organisational measures implemented by the data importer(s) (including any relevant certifications) to ensure an appropriate level of security, taking into account the nature, scope, context and purpose of the processing, and the risks for the rights and freedoms of natural persons
+1. Data Security Certifications. Data importer holds the following data security certifications as applicable:
+● SOC 1, Type 2;
+● SOC 2, Type 2; and,
+● ISO 27001:2013.
+2. Personnel. Data importer’s personnel will not process personal data without authorization. Personnel are obligated to maintain the confidentiality of any such personal data and this obligation continues even after their engagement ends.
+3. Data Privacy Contact. The data privacy officer of the data importer can be reached at dpo@github.com and the following address: GitHub, Inc. Attn: Privacy, 88 Colin P. Kelly Jr. Street, San Francisco, California 94107 USA
+4. Technical and Organization Measures. GitHub implements and maintains the technical and organizational measures and security safeguards listed in Table 1 below for processing Customer Personal Data on behalf and in accordance with Customer Instructions in connection with the Online Services. These measures in conjunction with the security commitments in this DPA are GitHub’s only responsibility with respect to the security of that data.
+5. Vendor management program - third-party risk program. The data importer has a vendor risk assessment process, vendor contract clauses and additional data protection agreements with vendors. Vendors undergo reassessment when a new business use case is requested. The data importer’s vendor risk program is structured so all of data importer’s vendors’ risk assessments are refreshed two years from the last review date. Vendors deemed high risk, such as data center providers or other vendors storing or processing data in scope for the data importer’s regulatory or contractual requirements, undergo reassessment annually.
+  GitHub Data Protection Agreement (September 2023)
+16
+
+ Table 1: Technical and Organization Measures
+   Domain
+    Practices
+   Access Control
+  Access Policy. GitHub maintains a record of security privileges of individuals having access to Customer Data.
+Access Authorization
+● GitHub maintains and updates a record of personnel authorized to access GitHub systems that contain Customer Data.
+● GitHub identifies those personnel who may grant, alter or cancel authorized access to data and resources.
+● GitHub ensures that where more than one individual has access to systems containing Customer Data, the individuals have separate identifiers/log-ins where technically and architecturally feasible, and commercially reasonable.
+Least Privilege
+● Technical support personnel are only permitted to have access to Customer Data and Personal Data when needed.
+● GitHub restricts access to Customer Data and Personal Data to only those individuals who require such access to perform their job function. GitHub employees are only granted access to production systems based on their role within the organization.
+Integrity and Confidentiality
+● GitHub instructs GitHub personnel to disable administrative sessions when computers are left unattended.
+● GitHub stores passwords such that they are encrypted or unintelligible while they are in force.
+Authentication
+● GitHub uses industry standard practices to identify and authenticate users who attempt to access information systems.
+● Where authentication mechanisms are based solely on passwords, GitHub requires the password to be at least eight characters long.
+● GitHub ensures that de-activated or expired employee identifiers are not granted to other individuals.
+● GitHub monitors, or enables Customer to monitor, repeated attempts to gain access to the information system using an invalid password.
+● GitHub maintains industry standard procedures to deactivate passwords that have been corrupted or inadvertently disclosed.
+● GitHub uses industry standard password protection practices,
+including practices designed to maintain the confidentiality and
+ GitHub Data Protection Agreement (September 2023)
+17
+
+    Domain
+    Practices
+    integrity of passwords when they are assigned and distributed,
+and during storage.
+Network Design. GitHub has controls to ensure no systems storing
+Customer Data and Personal Data are part of the same logical network used for GitHub business operations.
+    Asset Management
+Asset Inventory. GitHub maintains an inventory of all media on which Customer Personal Data is stored. Access to the inventories of such media is restricted to GitHub personnel authorized to have such access.
+Asset Handling
+● GitHub classifies Customer Personal Data to help identify it and to allow for access to it to be appropriately restricted.
+● GitHub communicates employee responsibility and accountability for data protection up to and including cause for termination.
+● GitHub personnel must obtain GitHub authorization prior to remotely accessing Customer Personal Data or processing Customer Personal Data outside GitHub’s facilities.
+    Business Continuity Management
+   ● GitHub maintains emergency and contingency plans for the facilities in which GitHub information systems that process Customer Data and Personal Data are located.
+● GitHub’s redundant storage and its procedures for recovering data are designed to attempt to reconstruct Customer Data and Personal Data in its original or last-replicated state from before the time it was lost or destroyed.
+   Communications and
+Operations Management
+ Operational Policy. GitHub maintains security documents describing its security measures and the relevant procedures and responsibilities of its personnel who have access to Customer Personal Data.
+Data Recovery Procedures
+● On an ongoing basis, but in no case less frequently than once a week (unless no Customer Personal Data has been updated during that period), GitHub maintains multiple copies of Customer Personal Data from which Customer Personal Data can be recovered.
+● GitHub stores copies of Customer Personal Data and data recovery procedures in a different place from where the primary computer equipment processing the Customer Personal Data is located.
+  GitHub Data Protection Agreement (September 2023)
+18
+
+    Domain
+    Practices
+    ● GitHub has specific procedures in place governing access to copies of Customer Personal Data.
+● GitHub logs data restoration efforts, including the person responsible, the description of the restored data and where applicable, the person responsible and which data (if any) had to be input manually in the data recovery process.
+Malicious Software. GitHub has threat detection controls to help identify and respond to anomalous or suspicious access to Customer Personal Data, including malicious software originating from public networks.
+Data Beyond Boundaries
+● GitHub encrypts, or enables Customer to encrypt, Customer Personal Data that is transmitted over public networks.
+● GitHub restricts access to Customer Personal Data in media leaving its facilities.
+Event Logging. GitHub logs, or enables Customer to log, access and use of information systems containing Customer Personal Data, registering the access ID, time, authorization granted or denied, and relevant activity.
+   Human Resources Security
+   Security Training. GitHub requires all new hires to complete security and privacy awareness training as part of initial on-boarding. Participation in annual training is required for all employees to provide a baseline for security and privacy basics.
+   Information Security Incident Management
+  Incident Response Process
+● GitHub maintains a record of security incidents with a description of the incidents, the time period, the consequences of the breach, the name of the reporter, and to whom the incident was reported, and details regarding the handling of the incident.
+● In the event that GitHub Security confirms or reasonably suspects that a GitHub.com customer is affected by a data breach, we will notify the customer without undue delay
+● GitHub tracks, or enables Customer to track, disclosures of Customer Data, including what data has been disclosed, to whom, and at what time.
+Service Monitoring. GitHub employs a wide range of continuous monitoring solutions for preventing, detecting, and mitigating attacks to the site.
+ GitHub Data Protection Agreement (September 2023)
+19
+
+    Domain
+    Practices
+   Organization of Information Security
+ Security Ownership. GitHub has appointed one or more security officers responsible for coordinating and monitoring the security policies and procedures.
+Security Roles and Responsibilities. GitHub personnel with access to Customer Personal Data are subject to confidentiality obligations. Risk Management Program. GitHub performs an annual risk assessment.
+GitHub retains its security documents pursuant to its retention requirements after they are no longer in effect.
+Vendor Management. GitHub has a vendor risk assessment process, vendor contract clauses and additional data protection agreements with vendors.
+    Physical and Environmental Security
+ Physical Access to Facilities. GitHub limits access to facilities where information systems that process Customer Personal Data are located to identified authorized individuals.
+Physical Access to Components. GitHub maintains records of the incoming and outgoing media containing Customer Personal Data, including the kind of media, the authorized sender/recipients, date and time, the number of media and the types of Customer Personal Data they contain.
+Protection from Disruptions. GitHub uses a variety of industry standard systems to protect against loss of data due to power supply failure or line interference.
+Component Disposal. GitHub uses industry standard processes to delete Customer Personal Data when it is no longer needed.
+  GitHub Data Protection Agreement (September 2023)
+20
+
+ DPA Attachment 3
+ANNEX III– LIST OF SUB-PROCESSORS to the
+Standard Contractual Clauses (EU/EEA)
+MODULE ONE: CONTROLLER TO CONTROLLER MODULE TWO: CONTROLLER TO PROCESSOR MODULE THREE: PROCESSOR TO PROCESSOR
+The Parties rely on general authorization under Clause 9a of the Standard Contractual Clauses (EU/EEA). The list of Subprocessors can be found on the GitHub website at https://github.com/github-subprocessors-list
+ GitHub Data Protection Agreement (September 2023)
+21
+
+ DPA Attachment 4
+ANNEX IV to the Standard Contractual Clauses (EU/EEA) Additional Safeguards Addendum
+This Addendum to the Standard Contractual Clauses (“Addendum”) by GitHub provides extra safeguards and redress for data subjects linked to Customer's personal data. It supplements but does not modify the Standard Contractual Clauses.
+I. Challenges to Orders: If GitHub receives an order demanding disclosure of personal data transferred under the Standard Contractual Clauses, GitHub will:
+a. Redirect the third party to request data from the Customer;
+b. Inform the Customer unless legally prohibited, striving to waive this prohibition;
+c. Challenge the disclosure order legally.
+II. Indemnification of Data Subjects: GitHub shall indemnify a data subject for damages caused by GitHub's disclosure of their data in response to an order from a non-EU/EEA government body.
+a. No Obligation to Indemnify:
+i. If the data subject has already received compensation for the same damage,
+GitHub has no obligation to indemnify.
+ii. If GitHub can prove the disclosure did not violate Chapter V of the GDPR,
+GitHub has no obligation to indemnify.
+b. Conditions of Indemnification: Indemnification depends on the data subject proving
+that:
+i. GitHub disclosed the data;
+ii. This led to an official proceeding against them; and
+iii. The disclosure directly caused damage.
+c. Scope of Damages: Indemnification covers only damages defined in the GDPR, excluding consequential and other damages not due to GitHub’s GDPR infringement.
+III. Exercise of Rights: Data subjects can enforce their rights under this Addendum against GitHub irrespective of any restrictions in the Standard Contractual Clauses. Claims must be individual, not part of a collective action, and are non-transferable.
+IV. Notice of Change: GitHub warrants that the current legislation to which it is subject allows it to fulfill obligations under this Addendum and the Standard Contractual Clauses. If a legal change affecting these obligations occurs, GitHub will notify the Customer, who can then suspend data transfer or terminate the contract.
+V. Termination: This Addendum ends if a different lawful transfer mechanism is approved that covers the data transfers of the Standard Contractual Clauses, and doesn't require these additional safeguards.
+GitHub Data Protection Agreement (September 2023)
+22
